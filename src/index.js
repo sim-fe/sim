@@ -1,9 +1,7 @@
-import WRow from './components/row'
-import WCol from './components/col'
+import Button from './components/button'
 
 const components = [
-  WRow,
-  WCol
+  Button
 ]
 
 const install = function (Vue) {
@@ -17,6 +15,5 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
   install,
-  WRow,
-  WCol
+  Button
 }
