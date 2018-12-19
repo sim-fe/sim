@@ -1,29 +1,22 @@
-# sim-ui
+# sim ui
 
-## Project setup
-```
-npm install
-```
+`sim-ui` 是一款基于 `Vue.js 2.x` 的前端 UI 组件库，主要用于快速开发 PC 网站中后台产品
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Run your tests
-```
-npm run test
+## 浏览器支持
+
+
+
+## 安装
+
+
+## 使用
+
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+## 贡献
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+如果你在使用 `sim-ui` 时遇到问题，或者有好的建议，欢迎给我们提 [Issue](https://github.com/sim-fe/sim/issues)
+
+
