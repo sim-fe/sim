@@ -1,15 +1,19 @@
 <template>
-  <div class="docs-demo-wrapper">
-      <div :style="{height: isExpand ? 'auto' : '0'}" class="demo-container">
-        <div span="14">
-          <div class="docs-demo docs-demo--expand">
-            <div class="highlight-wrapper">
-              <slot name="highlight"></slot>
+  <div class="demo-block">
+    <div class="demo-block__source"><slot name="source"></slot></div>
+    <div class="description"><slot></slot></div>
+    <div class="docs-demo-wrapper">
+        <div :style="{height: isExpand ? 'auto' : '0'}" class="demo-container">
+          <div span="14">
+            <div class="docs-demo docs-demo--expand">
+              <div class="highlight-wrapper">
+                <slot name="highlight"></slot>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    <span class="docs-trans docs-demo__triangle" @click="toggle">{{isExpand ? '隐藏代码' : '显示代码'}}</span>
+      <span class="docs-trans docs-demo__triangle" @click="toggle">{{isExpand ? '隐藏代码' : '显示代码'}}</span>
+    </div>
   </div>
 </template>
 
@@ -31,7 +35,19 @@
 </script>
 
 <style lang="scss">
-
+   .demo-block{
+    border: 1px solid #ebebeb;
+    border-radius: 4px 4px 0 0;
+    background-color: #fff;
+    margin-top: 16px;
+    &__source {
+      border-bottom: 1px solid #ebebeb;
+      padding: 20px 24px;
+      color: #444;
+      position: relative;
+      margin-bottom: -1px;
+    }
+  }
   .demo-container {
     transition: max-height .3s ease;
     overflow: hidden;
@@ -42,7 +58,7 @@
     box-sizing: border-box;
     font-size: 14px;
     background-color: #F7F7F7;
-    border: 1px solid #e2ecf4;
+    border-bottom: 1px solid #e2ecf4;
     border-top: none;
     pre code {
       font-family: Consolas,Menlo,Courier,monospace;
@@ -58,6 +74,11 @@
     font-size: 12px;
     padding: 10px 0;
     background-color: #FAFBFC;
+    cursor: pointer;
+    &:hover {
+      color: #3a75a2;
+      background-color: #f0f2f5;
+    }
   }
 
   .docs-demo__code,
@@ -129,6 +150,35 @@
       width: 100%;
       border: 0;
       height: 548px;
+    }
+  }
+
+  .description {
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: solid 1px #ebebeb;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 22px;
+    color: #666;
+    word-break: break-word;
+    background-color: #fff;
+
+    p {
+      margin: 0;
+      line-height: 26px;
+    }
+
+    code {
+      color: #5e6d82;
+      background-color: #e6effb;
+      margin: 0 4px;
+      display: inline-block;
+      padding: 1px 5px;
+      font-size: 12px;
+      border-radius: 3px;
+      height: 18px;
+      line-height: 18px;
     }
   }
 </style>
