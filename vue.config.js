@@ -54,8 +54,6 @@ const vueMarkdown = {
                 var descriptionHTML = description
                 ? md.render(description)
                 : '';
-                console.log(content)
-                console.log(descriptionHTML)
                 return `<demo-block>
                         <div class="source" slot="source">${content}</div>
                         ${descriptionHTML}
@@ -90,6 +88,7 @@ module.exports = {
         .options(vueMarkdown)
     },
     css: {
+        sourceMap: true,
         loaderOptions: {
          
         }
