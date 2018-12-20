@@ -17,4 +17,4 @@
 
 ## 贡献
 
-如果你在使用 `sim-ui` 时遇到问题，或者有好的建议，欢迎给我们提 [Issue](https://github.com/sim-ui/sim-ui/issues) 或 [Pull Request](https://github.com/sim-ui/sim-ui/pulls)
+如果你在使用 `sim-ui` 时遇到问题，或者有好的建议，欢迎给我们提 [Issue](https://github.com/sim-fe/sim/issues) 或 [Pull Request](https://github.com/sim-fe/sim/pulls)
