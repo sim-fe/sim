@@ -1,0 +1,23 @@
+@import '../variables/nameSpace';
+
+@mixin component ($block) {
+  $B: $prefix-name + '-' + $block !global;
+  .#{$B} {
+    @content;
+  }
+}
+
+// button
+@mixin button ($name, $color, $bgColor) {
+    $sel: & + '--' + $name;
+    @at-root #{$sel} {
+        background: $bgColor;
+        color: $color;
+        border: none;
+        &:focus,
+        &:hover {
+            color: $color;
+            background-color: mix($color, $bgColor, 20%);
+        }
+    }
+}

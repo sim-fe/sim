@@ -1,0 +1,15 @@
+// font
+$font-size-base: 12px;
+$font-size-1: $font-size-base;
+$font-size-2: $font-size-base + 2px;
+
+// height
+$height-base: 32px;
+$button-height: $height-base;
+$button-height-small: $button-height - 4px;
+$button-height-mini: $button-height-small - 4px;
+$button-height-big: $button-height + 4px;
+$form-elem-height: $height-base;
+
+// 
+$border-radius: 4px;

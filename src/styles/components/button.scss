@@ -1,0 +1,27 @@
+@import '../variables/index';
+@import '../minxins/index';
+
+@include component (button) {
+    display: inline-block;
+    height: $button-height;
+    box-sizing: border-box;
+    padding: 0 15px;
+    line-height: $button-height;
+    background: $button-default-fill;
+    color: $button-default-color;
+    border: 1px solid $button-default-border-color;
+    border-radius: $border-radius;
+    vertical-align: middle;
+    outline: none;
+    cursor: pointer;
+    &:focus,
+    &:hover {
+        color: $blue-dark-1;
+        border-color: $blue-light-1;
+        background-color: $blue-light-5;
+    }
+    @include button(primary, $white, $primary);
+    @include button(success, $white, $success);
+    @include button(warning, $white, $warning);
+    @include button(danger, $white, $danger);
+}

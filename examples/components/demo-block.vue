@@ -46,6 +46,9 @@
       color: #444;
       position: relative;
       margin-bottom: -1px;
+      button {
+        margin-left: 10px;
+      }
     }
   }
   .demo-container {

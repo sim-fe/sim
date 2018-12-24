@@ -29,8 +29,14 @@ export default {
         {
           "desc": "Icon 图标",
           "name": "icon",
-          "path": "/icon"
+          "path": "/icon",
+          "type": "pages"
         },
+        // {
+        //   "desc": "color 颜色",
+        //   "name": "color",
+        //   "path": "/color"
+        // },
         {
           "desc": "Button 按钮",
           "name": "button",
