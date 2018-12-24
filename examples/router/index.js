@@ -7,7 +7,7 @@ Vue.use(Router)
 let routes = [{
   "name": "index",
   "path": "/",
-  "type": "page"
+  "type": "pages"
 }]
 
 Object.keys(navConf).forEach((header) => {
