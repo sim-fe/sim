@@ -6,7 +6,7 @@
     height: $button-height;
     font-size: $font-size-base;
     box-sizing: border-box;
-    padding: 0 15px;
+    padding: 0 $padding-base;
     background: $button-default-fill;
     color: $button-default-color;
     border: 1px solid $button-default-border-color;
@@ -26,10 +26,21 @@
     }
     &:focus,
     &:hover {
-        color: $blue-dark-1;
-        border-color: $blue-light-1;
-        background-color: $blue-light-5;
+        color: $primary-dark-1;
+        border-color: $primary-light-1;
+        background-color: $primary-light-5;
     }
+    &[disabled] {
+        &,
+        &:hover,
+        &:focus {
+            color: $button-disabled-color;
+            background-color: lighten($button-disabled-color, 15%);
+            cursor: not-allowed;
+            border-color: lighten($button-disabled-color, 10%);
+        }
+    }
+
     @include button-color(primary, $white, $primary);
     @include button-color(success, $white, $success);
     @include button-color(warning, $white, $warning);

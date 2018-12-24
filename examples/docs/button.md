@@ -29,7 +29,7 @@
     <Button icon="sim-icon-bianji">编辑</Button>
     <Button icon="sim-icon-sousuo" type="primary">搜索</Button>
     <Button icon="sim-icon-shanchu" type="danger">删除</Button>
-    <Button icon="sim-icon-set">设置</Button>
+    <Button icon="sim-icon-set" disabled>设置</Button>
 </div>
 ```
 :::

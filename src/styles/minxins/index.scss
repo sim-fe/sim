@@ -10,17 +10,16 @@
 // button
 @mixin button-color ($name, $color, $bgColor) {
     $sel: & + '--' + $name;
+    $hoverColor: mix($color, $bgColor, 15%);
     @at-root #{$sel} {
         background: $bgColor;
         color: $color;
-        border: none;
+        border-color: $bgColor;
         &:focus,
         &:hover {
             color: $color;
-            background-color: mix($color, $bgColor, 20%);
-        }
-        i[class*=sim-icon] {
-            color: #fff;
+            background-color: $hoverColor;
+            border-color: $hoverColor;
         }
     }
 }

@@ -5,7 +5,6 @@
     :disabled="disabled"
     :class="[
       'sim-button--' + type,
-      {'is-plain': plain, 'is-disabled': disabled, 'is-round': round},
       size ? 'sim-button--' + size : ''
     ]"
   >

@@ -3,22 +3,22 @@ $white: #fff !default;
 
 $black: #000 !default;
 
+$gray: #c5c8ce !default;
 $gray1: #515a6e !default;
 $gray2: #dcdee2 !default;
 
 $blue: #1E90FF !default;
-$blue-light-1: lighten($blue, 10%) !default;
-$blue-light-2: lighten($blue, 20%) !default;
-$blue-light-3: lighten($blue, 30%) !default;
-$blue-light-4: lighten($blue, 40%) !default;
-$blue-light-5: lighten($blue, 50%) !default;
-$blue-dark-1: darken($blue, 10%) !default;
-
 $green: #00CD00 !default;
 $orage: #FF7F50 !default;
 $red: #EE2C2C !default;
 
 $primary: $blue;
+$primary-light-1: lighten($blue, 10%) !default;
+$primary-light-2: lighten($blue, 20%) !default;
+$primary-light-3: lighten($blue, 30%) !default;
+$primary-light-4: lighten($blue, 40%) !default;
+$primary-light-5: lighten($blue, 50%) !default;
+$primary-dark-1: darken($blue, 10%) !default;
 $success: $green;
 $warning: $orage;
 $danger: $red;
@@ -26,3 +26,5 @@ $danger: $red;
 $button-default-color: $gray1;
 $button-default-fill: $white;
 $button-default-border-color: $gray2;
+
+$button-disabled-color: $gray;
