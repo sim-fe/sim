@@ -3,12 +3,18 @@ $font-size-base: 12px;
 $font-size-1: $font-size-base;
 $font-size-2: $font-size-base + 2px;
 
+// padding
+$padding-base: 15px;
+$button-mini-padding: 5px;
+$button-small-padding: 10px;
+
 // height
+$height-interval: 4px;
 $height-base: 32px;
 $button-height: $height-base;
-$button-height-small: $button-height - 4px;
-$button-height-mini: $button-height-small - 4px;
-$button-height-big: $button-height + 4px;
+$button-height-small: $button-height - $height-interval;
+$button-height-mini: $button-height-small - $height-interval;
+$button-height-big: $button-height + $height-interval * 1.5;
 $form-elem-height: $height-base;
 
 // 

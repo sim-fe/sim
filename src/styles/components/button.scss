@@ -1,12 +1,12 @@
 @import '../variables/index';
 @import '../minxins/index';
 
-@include component (button) {
+@include class (button) {
     display: inline-block;
     height: $button-height;
+    font-size: $font-size-base;
     box-sizing: border-box;
     padding: 0 15px;
-    line-height: $button-height;
     background: $button-default-fill;
     color: $button-default-color;
     border: 1px solid $button-default-border-color;
@@ -14,14 +14,28 @@
     vertical-align: middle;
     outline: none;
     cursor: pointer;
+    i[class*=sim-icon] {
+        font-size: 14px;
+        vertical-align: middle;
+        & + span {
+            margin-left: 4px;
+        }
+    }
+    span {
+        vertical-align: middle;
+    }
     &:focus,
     &:hover {
         color: $blue-dark-1;
         border-color: $blue-light-1;
         background-color: $blue-light-5;
     }
-    @include button(primary, $white, $primary);
-    @include button(success, $white, $success);
-    @include button(warning, $white, $warning);
-    @include button(danger, $white, $danger);
+    @include button-color(primary, $white, $primary);
+    @include button-color(success, $white, $success);
+    @include button-color(warning, $white, $warning);
+    @include button-color(danger, $white, $danger);
+
+    @include button-size(mini, $button-height-mini, false, $button-mini-padding);
+    @include button-size(small, $button-height-small, false, $button-small-padding);
+    @include button-size(big, $button-height-big, $font-size-2);
 }
