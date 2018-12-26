@@ -1,7 +1,7 @@
 @import '../variables/index';
 @import '../minxins/index';
 
-@include class (button-group) {
+@include b (button-group) {
     display: inline-block;
     vertical-align: middle;
     & > .sim-button {

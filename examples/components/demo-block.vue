@@ -1,7 +1,7 @@
 <template>
   <div class="demo-block">
     <div class="demo-block__source"><slot name="source"></slot></div>
-    <div class="description"><slot></slot></div>
+    <div v-if="$slots.default" class="description"><slot></slot></div>
     <div class="docs-demo-wrapper">
         <div :style="{height: isExpand ? 'auto' : '0'}" class="demo-container">
           <div span="14">
