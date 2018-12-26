@@ -24,6 +24,9 @@
     }
     span {
         vertical-align: middle;
+        & + i[class*=sim-icon] {
+            margin-left: 4px;
+        }
     }
     &:focus,
     &:hover {
@@ -50,4 +53,9 @@
     @include button-size(mini, $button-height-mini, false, $button-mini-padding);
     @include button-size(small, $button-height-small, false, $button-small-padding);
     @include button-size(big, $button-height-big, $font-size-2);
+
+    @at-root #{& + '--' + auto} {
+        width: 100%;
+        text-align: center;
+    }
 }

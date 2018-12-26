@@ -5,11 +5,18 @@
     :disabled="disabled"
     :class="[
       'sim-button--' + type,
-      size ? 'sim-button--' + size : ''
+      size ? 'sim-button--' + size : '',
+      widthAuto ? 'sim-button--auto' : ''
     ]"
   >
-    <i v-if="icon !== ''" :class="icon"></i>
-    <span v-if="$slots.default"><slot></slot></span>
+    <template v-if="iconPosition === 'left'">
+      <i v-if="icon !== ''" :class="icon"></i>
+      <span v-if="$slots.default"><slot></slot></span>
+    </template>
+    <template v-if="iconPosition === 'right'">
+      <span v-if="$slots.default"><slot></slot></span>
+      <i v-if="icon !== ''" :class="icon"></i>
+    </template>
   </button>
 </template>
 <script>
@@ -27,7 +34,12 @@
       },
       plain: Boolean,
       disabled: Boolean,
-      round: Boolean
+      round: Boolean,
+      widthAuto: Boolean,
+      iconPosition: {
+        type: String,
+        default: 'left'
+      }
     },
     data () {
       return {
