@@ -9,7 +9,7 @@
     ]"
   >
     <i v-if="icon !== ''" :class="icon"></i>
-    <span><slot></slot></span>
+    <span v-if="$slots.default"><slot></slot></span>
   </button>
 </template>
 <script>

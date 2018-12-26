@@ -1,16 +1,17 @@
 @import '../variables/nameSpace';
 
 @mixin class ($block) {
-  $B: $prefix-name + '-' + $block !global;
-  .#{$B} {
+    $B: $prefix-name + '-' + $block !global;
+    .#{$B} {
     @content;
-  }
+    }
 }
 
 // button
 @mixin button-color ($name, $color, $bgColor) {
     $sel: & + '--' + $name;
     $hoverColor: mix($color, $bgColor, 15%);
+    $disableColor:  mix($color, $bgColor, 50%);
     @at-root #{$sel} {
         background: $bgColor;
         color: $color;
@@ -20,6 +21,16 @@
             color: $color;
             background-color: $hoverColor;
             border-color: $hoverColor;
+        }
+        &[disabled] {
+            &,
+            &:hover,
+            &:focus {
+                color: $color;
+                background-color: $disableColor;
+                border-color: $disableColor;
+                cursor: not-allowed;
+            }
         }
     }
 }
