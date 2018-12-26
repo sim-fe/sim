@@ -46,7 +46,7 @@
       color: #444;
       position: relative;
       margin-bottom: -1px;
-      button {
+      button + button {
         margin-left: 10px;
       }
     }
