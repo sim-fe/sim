@@ -65,7 +65,7 @@
 </div>
 <br>
 <div>
-    <Button icon="sim-icon-loading1" size="big" width-auto disabled>正常</Button>
+    <Button icon="sim-icon-loading1" type="primary" size="big" width-auto disabled>加载</Button>
 </div>
 ```
 :::
