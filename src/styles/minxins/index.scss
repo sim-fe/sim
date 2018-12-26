@@ -1,49 +1,87 @@
-@import '../variables/nameSpace';
+@import "../variables/nameSpace";
 
-@mixin class ($block) {
-    $B: $prefix-name + '-' + $block !global;
-    .#{$B} {
+/* ========================================================================== */
+/*                                     BEM                                    */
+/* ========================================================================== */
+
+@mixin class($block) {
+  $B: $prefix-name + "-" + $block !global;
+  .#{$B} {
     @content;
     }
 }
 
-// button
-@mixin button-color ($name, $color, $bgColor) {
-    $sel: & + '--' + $name;
-    $hoverColor: mix($color, $bgColor, 15%);
-    $disableColor:  mix($color, $bgColor, 50%);
-    @at-root #{$sel} {
-        background: $bgColor;
-        color: $color;
-        border-color: $bgColor;
-        &:focus,
-        &:hover {
-            color: $color;
-            background-color: $hoverColor;
-            border-color: $hoverColor;
-        }
-        &[disabled] {
-            &,
-            &:hover,
-            &:focus {
-                color: $color;
-                background-color: $disableColor;
-                border-color: $disableColor;
-                cursor: not-allowed;
-            }
-        }
+@mixin e($element) {
+  $E: $element !global;
+  $selector: &;
+  $currentSelector: "";
+  @each $unit in $element {
+    $currentSelector: #{$currentSelector +
+      "." +
+      $B +
+      $element-separator +
+      $unit +
+      ","};
+  }
+
+  @at-root {
+    #{$currentSelector} {
+      @content;
     }
+  }
 }
 
-@mixin button-size ($name, $height, $fontSize: false, $padding:false) {
-    $sel: & + '--' + $name;
-    @at-root #{$sel} {
-        height: $height;
-        @if $padding {
-            padding: 0 $padding;
-        }
-        @if $fontSize {
-            font-size: $fontSize;
-        }
+@mixin m($modifier) {
+  $selector: &;
+  $currentSelector: "";
+  @each $unit in $modifier {
+    $currentSelector: #{$currentSelector +
+      & +
+      $modifier-separator +
+      $unit +
+      ","};
+  }
+
+  @at-root {
+    #{$currentSelector} {
+      @content;
     }
+  }
 }
+
+/* ========================================================================== */
+/*                                   BUTTON                                   */
+/* ========================================================================== */
+
+@mixin button-color($name, $color, $bgColor) {
+  $sel: & + "--" + $name;
+  $hoverColor: mix($color, $bgColor, 15%);
+  @at-root #{$sel} {
+    background: $bgColor;
+    color: $color;
+    border-color: $bgColor;
+    &:focus,
+    &:hover {
+      color: $color;
+      background-color: $hoverColor;
+      border-color: $hoverColor;
+    }
+  }
+}
+
+@mixin button-size($name, $height, $fontSize: false, $padding: false) {
+  $sel: & + "--" + $name;
+  @at-root #{$sel} {
+    height: $height;
+    @if $padding {
+      padding: 0 $padding;
+    }
+    @if $fontSize {
+      font-size: $fontSize;
+    }
+  }
+}
+
+/* ========================================================================== */
+/*                                    MODAL                                   */
+/* ========================================================================== */
