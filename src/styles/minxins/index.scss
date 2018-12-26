@@ -56,16 +56,27 @@
 @mixin button-color($name, $color, $bgColor) {
   $sel: & + "--" + $name;
   $hoverColor: mix($color, $bgColor, 15%);
+  $disableColor:  mix($color, $bgColor, 50%);
   @at-root #{$sel} {
-    background: $bgColor;
-    color: $color;
-    border-color: $bgColor;
-    &:focus,
-    &:hover {
+      background: $bgColor;
       color: $color;
-      background-color: $hoverColor;
-      border-color: $hoverColor;
-    }
+      border-color: $bgColor;
+      &:focus,
+      &:hover {
+          color: $color;
+          background-color: $hoverColor;
+          border-color: $hoverColor;
+      }
+      &[disabled] {
+          &,
+          &:hover,
+          &:focus {
+              color: $color;
+              background-color: $disableColor;
+              border-color: $disableColor;
+              cursor: not-allowed;
+          }
+      }
   }
 }
 
