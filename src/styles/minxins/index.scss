@@ -8,7 +8,7 @@
   $B: $prefix-name + "-" + $block !global;
   .#{$B} {
     @content;
-  }
+    }
 }
 
 @mixin e($element) {
