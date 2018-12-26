@@ -39,7 +39,8 @@
       "eslint:recommended"
     ],
     "rules": {
-      "vue/require-v-for-key": "off"
+      "vue/require-v-for-key": "off",
+      "vue/no-use-v-if-with-v-for": "off"
     },
     "parserOptions": {
       "parser": "babel-eslint"

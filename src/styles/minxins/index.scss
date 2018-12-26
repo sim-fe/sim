@@ -4,7 +4,7 @@
 /*                                     BEM                                    */
 /* ========================================================================== */
 
-@mixin class($block) {
+@mixin b($block) {
   $B: $prefix-name + "-" + $block !global;
   .#{$B} {
     @content;

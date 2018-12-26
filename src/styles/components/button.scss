@@ -1,7 +1,7 @@
 @import '../variables/index';
 @import '../minxins/index';
 
-@include class (button) {
+@include b (button) {
     display: inline-block;
     height: $button-height;
     font-size: $font-size-base;
