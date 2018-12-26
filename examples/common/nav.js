@@ -58,6 +58,11 @@ export default {
           "name": "layout",
           "path": "/layout"
         },
+        {
+          "desc": "Modal 对话框",
+          "name": "modal",
+          "path": "/modal"
+        },
       ]
     },
     {
