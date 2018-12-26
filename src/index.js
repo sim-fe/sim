@@ -1,11 +1,13 @@
 import Button from './components/button'
 import Modal from './components/modal'
 import ButtonGroup from './components/button-group'
+import Input from './components/input'
 
 const components = [
   Button,
   Modal,
-  ButtonGroup
+  ButtonGroup,
+  Input
 ]
 
 const install = function (Vue) {
@@ -19,7 +21,5 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
   install,
-  Button,
-  Modal,
-  ButtonGroup
+  ...components
 }
