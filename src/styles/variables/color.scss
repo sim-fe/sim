@@ -22,13 +22,16 @@ $primary-dark-1: darken($blue, 10%) !default;
 $success: $green;
 $warning: $orage;
 $danger: $red;
+$disabled: $gray;
 
 $button-default-color: $gray1;
 $button-default-fill: $white;
 $button-default-border-color: $gray2;
-
 $button-disabled-color: $gray;
 
+$placeholder-color: $gray;
+$hover-border: $primary-light-3;
+$focus-border: $primary-light-1;
 /* ---------------------------------- Modal --------------------------------- */
 $modal-dimmer-background: rgba(0, 0, 0, 0.85);
 $modal-footer-background: #f9fafb;
