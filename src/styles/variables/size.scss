@@ -17,5 +17,17 @@ $button-height-mini: $button-height-small - $height-interval;
 $button-height-big: $button-height + $height-interval * 1.5;
 $form-elem-height: $height-base;
 
+// border
+$border: 1px solid rgba(34,36,38,.15);
+
 // border-radius
 $border-radius: 4px;
+
+/* ---------------------------------- modal --------------------------------- */
+$modal-padding-lr: 20px;
+$modal-padding-tb: 15px;
+$modal-padding-header: $modal-padding-tb $modal-padding-lr;
+$modal-padding-content: $modal-padding-lr;
+$modal-padding-footer: $modal-padding-tb $modal-padding-lr;
+$modal-header-font-size: 18px;
+$modal-header-font-weight: 700;

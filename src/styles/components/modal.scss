@@ -5,8 +5,8 @@
   position: relative;
   margin: 0 auto;
   background: $white;
+  width: 50%;
   border-radius: $border-radius;
-  min-height: 30px;
 
   @include e(dimmer) {
     position: fixed;
@@ -18,5 +18,74 @@
     overflow: auto;
     margin: 0;
     background-color: $modal-dimmer-background;
+  }
+
+  @include e(header) {
+    padding: $modal-padding-header;
+    font-size: $modal-header-font-size;
+    font-weight: $modal-header-font-weight;
+    border-bottom: $border;
+    border-radius: $border-radius $border-radius 0 0;
+    background: $white;
+  }
+
+  @include e(content) {
+    padding: $modal-padding-content;
+  }
+
+  @include e(footer) {
+    padding: $modal-padding-footer;
+    border-radius: 0 0 $border-radius $border-radius;
+    border-top: $border;
+    background: $modal-footer-background;
+    text-align: right;
+  }
+
+  @include e(closebtn) {
+    position: absolute;
+    top: $modal-padding-tb;
+    right: $modal-padding-lr;
+    background: none;
+    border: none;
+    cursor: pointer;
+    &:focus, &:hover {
+      color: $blue;
+    }
+  }
+
+  @include m(small) {
+    @include modal-size(samll)
+  }
+}
+
+/* --------------------------------- 渐进渐出动画 --------------------------------- */
+
+.modal-fade-enter-active {
+  animation: modal-fade-in .3s;
+}
+
+.modal-fade-leave-active {
+  animation: modal-fade-out .3s;
+}
+
+@keyframes modal-fade-in {
+  0% {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes modal-fade-out {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
   }
 }

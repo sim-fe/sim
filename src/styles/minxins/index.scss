@@ -96,3 +96,16 @@
 /* ========================================================================== */
 /*                                    MODAL                                   */
 /* ========================================================================== */
+
+@mixin modal-size($name, $height, $fontSize: false, $padding: false) {
+  $sel: & + "--" + $name;
+  #{$sel} {
+    height: $height;
+    @if $padding {
+      padding: 0 $padding;
+    }
+    @if $fontSize {
+      font-size: $fontSize;
+    }
+  }
+}
