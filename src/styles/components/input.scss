@@ -1,0 +1,44 @@
+@import '../variables/index';
+@import '../minxins/index';
+@import '../extends/index';
+
+@include b (input) {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    font-size: $font-size-base;
+    @include e (input) {
+        width: 100%;
+        box-sizing: border-box;
+        height: $form-elem-height;
+        padding: 0 10px;
+        font-size: inherit;
+        color: $gray1;
+        background: $white;
+        border: 1px solid $gray2;
+        border-radius: $border-radius;
+        outline: none;
+        &::placeholder {
+            color: $placeholder-color;
+        }
+      
+        &:hover {
+            border-color: $hover-border;
+        }
+    
+        &:focus {
+            outline: none;
+            border-color: $focus-border;
+        }
+        &[disabled] {
+            &,
+            &:hover,
+            &:focus {
+                color: $disabled;
+                background-color: lighten($disabled, 15%);
+                cursor: not-allowed;
+                border-color: lighten($disabled, 10%);
+            }
+        }
+    }
+}
