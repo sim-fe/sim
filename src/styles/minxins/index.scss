@@ -101,15 +101,9 @@
 /*                                    MODAL                                   */
 /* ========================================================================== */
 
-@mixin modal-size($name, $height, $fontSize: false, $padding: false) {
+@mixin modal-size($name, $width) {
   $sel: & + "--" + $name;
-  #{$sel} {
-    height: $height;
-    @if $padding {
-      padding: 0 $padding;
-    }
-    @if $fontSize {
-      font-size: $fontSize;
-    }
+  @at-root #{$sel} {
+    width: $width;
   }
 }

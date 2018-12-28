@@ -3,10 +3,8 @@
         data() {
             return {
                 showUsual: false,
-                showSmall: false,
-                showMiddle: false,
-                showBig: false,
-                showLog: false
+                showSize: false,
+                size: ''
             };
         },
         methods: {
@@ -16,7 +14,7 @@
 
 # Modal 对话框
 ## 常用
-:::demo 使用`type`属性来定义 Button 的颜色, 用`disabled`属性 设置禁用。
+:::demo 一个常用的 Modal。
 ```html
 <div>
     <Button type="primary" @click="showUsual = true">点击弹窗</Button>
@@ -35,18 +33,22 @@
 :::
 
 ## 改变窗口大小
-:::demo 使用`type`属性来定义 Button 的颜色, 用`disabled`属性 设置禁用。
+:::demo 使用`size`属性来定义 Modal 的大小。
 ```html
 <div>
-    <Button type="primary" @click="show = true">small</Button>
-    <Modal :show.sync="show">
+    <Button type="primary" @click="showSize=true;size='mini';">mini</Button>
+    <Button type="warning" @click="showSize=true;size='small';">small</Button>
+    <Button type="primary" @click="showSize=true;size='normal';">normal</Button>
+    <Button type="warning" @click="showSize=true;size='big';">big</Button>
+    <Button type="primary" @click="showSize=true;size='full';">large</Button>
+    <Modal :show.sync="showSize" :size="size">
         <span slot="title">标题</span>
         <div slot="content">
-            <img src="../assets/images/paragraph.png">
+            <img src="../assets/images/paragraph.png" style="max-width:100%">
         </div>
         <div slot="footer">
-             <Button @click="show=false">关闭</Button>
-             <Button @click="show=false" type="success">确定</Button>
+             <Button @click="showSize=false">关闭</Button>
+             <Button @click="showSize=false" type="success">确定</Button>
         </div>
     </Modal>
 </div>
