@@ -5,7 +5,6 @@
   position: relative;
   margin: 0 auto;
   background: $white;
-  width: 50%;
   border-radius: $border-radius;
 
   @include e(dimmer) {
@@ -43,8 +42,8 @@
 
   @include e(closebtn) {
     position: absolute;
-    top: $modal-padding-tb;
-    right: $modal-padding-lr;
+    top: $modal-padding-vertical;
+    right: $modal-padding-horizontal;
     background: none;
     border: none;
     cursor: pointer;
@@ -53,9 +52,11 @@
     }
   }
 
-  @include m(small) {
-    @include modal-size(samll)
-  }
+  @include modal-size(mini, $modal-width-mini);
+  @include modal-size(small, $modal-width-small);
+  @include modal-size(normal, $modal-width-normal);
+  @include modal-size(big, $modal-width-big);
+  @include modal-size(full, $modal-width-full);
 }
 
 /* --------------------------------- 渐进渐出动画 --------------------------------- */

@@ -24,10 +24,16 @@ $border: 1px solid rgba(34,36,38,.15);
 $border-radius: 4px;
 
 /* ---------------------------------- modal --------------------------------- */
-$modal-padding-lr: 20px;
-$modal-padding-tb: 15px;
-$modal-padding-header: $modal-padding-tb $modal-padding-lr;
-$modal-padding-content: $modal-padding-lr;
-$modal-padding-footer: $modal-padding-tb $modal-padding-lr;
+$modal-padding-horizontal: 20px;
+$modal-padding-vertical: 15px;
+$modal-padding-header: $modal-padding-vertical $modal-padding-horizontal;
+$modal-padding-content: $modal-padding-horizontal;
+$modal-padding-footer: $modal-padding-vertical $modal-padding-horizontal;
 $modal-header-font-size: 18px;
 $modal-header-font-weight: 700;
+
+$modal-width-mini: 360px;
+$modal-width-small: 500px;
+$modal-width-normal: 700px;
+$modal-width-big: 1000px;
+$modal-width-full: 90%;
