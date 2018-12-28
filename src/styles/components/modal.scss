@@ -1,92 +1,102 @@
-@import "../variables/index";
-@import "../minxins/index";
+@import '../variables/index';
+@import '../minxins/index';
 
 @include b(modal) {
-  position: relative;
-  margin: 0 auto;
-  background: $white;
-  border-radius: $border-radius;
-
-  @include e(dimmer) {
-    position: fixed;
-    z-index: 9999;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: auto;
-    margin: 0;
-    background-color: $modal-dimmer-background;
-  }
-
-  @include e(header) {
-    padding: $modal-padding-header;
-    font-size: $modal-header-font-size;
-    font-weight: $modal-header-font-weight;
-    border-bottom: $border;
-    border-radius: $border-radius $border-radius 0 0;
+    position: relative;
+    margin: 0 auto;
     background: $white;
-  }
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
 
-  @include e(content) {
-    padding: $modal-padding-content;
-  }
-
-  @include e(footer) {
-    padding: $modal-padding-footer;
-    border-radius: 0 0 $border-radius $border-radius;
-    border-top: $border;
-    background: $modal-footer-background;
-    text-align: right;
-  }
-
-  @include e(closebtn) {
-    position: absolute;
-    top: $modal-padding-vertical;
-    right: $modal-padding-horizontal;
-    background: none;
-    border: none;
-    cursor: pointer;
-    &:focus, &:hover {
-      color: $blue;
+    @include e(dimmer) {
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: auto;
+        margin: 0;
+        background-color: $modal-dimmer-background;
     }
-  }
 
-  @include modal-size(mini, $modal-width-mini);
-  @include modal-size(small, $modal-width-small);
-  @include modal-size(normal, $modal-width-normal);
-  @include modal-size(big, $modal-width-big);
-  @include modal-size(full, $modal-width-full);
+    @include e(header) {
+        padding: $modal-padding-header;
+        font-size: $modal-header-font-size;
+        font-weight: $modal-header-font-weight;
+        border-bottom: $border;
+        border-radius: $border-radius $border-radius 0 0;
+        background: $white;
+
+        @include m(center) {
+            text-align: center;
+        }
+    }
+
+    @include e(content) {
+        padding: $modal-padding-content;
+    }
+
+    @include e(footer) {
+        padding: $modal-padding-footer;
+        border-radius: 0 0 $border-radius $border-radius;
+        border-top: $border;
+        background: $modal-footer-background;
+        text-align: right;
+
+        @include m(center) {
+            text-align: center;
+        }
+    }
+
+    @include e(closebtn) {
+        position: absolute;
+        top: $modal-padding-vertical;
+        right: $modal-padding-horizontal;
+        background: none;
+        border: none;
+        cursor: pointer;
+        &:focus,
+        &:hover {
+            color: $blue;
+        }
+    }
+
+    @include modal-size(mini, $modal-width-mini);
+    @include modal-size(small, $modal-width-small);
+    @include modal-size(normal, $modal-width-normal);
+    @include modal-size(big, $modal-width-big);
+    @include modal-size(full, $modal-width-full);
 }
 
 /* --------------------------------- 渐进渐出动画 --------------------------------- */
 
 .modal-fade-enter-active {
-  animation: modal-fade-in .3s;
+    animation: modal-fade-in 0.3s;
 }
 
 .modal-fade-leave-active {
-  animation: modal-fade-out .3s;
+    animation: modal-fade-out 0.3s;
 }
 
 @keyframes modal-fade-in {
-  0% {
-    transform: translate3d(0, -20px, 0);
-    opacity: 0;
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-  }
+    0% {
+        transform: translate3d(0, -20px, 0);
+        opacity: 0;
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
 }
 
 @keyframes modal-fade-out {
-  0% {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-  }
-  100% {
-    transform: translate3d(0, -20px, 0);
-    opacity: 0;
-  }
+    0% {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate3d(0, -20px, 0);
+        opacity: 0;
+    }
 }
