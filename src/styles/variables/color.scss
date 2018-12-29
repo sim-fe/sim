@@ -7,10 +7,10 @@ $gray: #c5c8ce !default;
 $gray1: #515a6e !default;
 $gray2: #dcdee2 !default;
 
-$blue: #1E90FF !default;
+$blue: #1e90ff !default;
 $green: #21ba45 !default;
-$orage: #FF7F50 !default;
-$red: #EE2C2C !default;
+$orage: #ff7f50 !default;
+$red: #ee2c2c !default;
 
 $primary: $blue;
 $primary-light-1: lighten($blue, 10%) !default;
@@ -23,6 +23,9 @@ $success: $green;
 $warning: $orage;
 $danger: $red;
 $disabled: $gray;
+
+$font-default-color: $gray1;
+$boder-default-color: $gray2;
 
 $button-default-color: $gray1;
 $button-default-fill: $white;

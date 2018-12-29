@@ -1,9 +1,7 @@
 <script>
     export default {
         methods: {
-            test () {
-                
-            }
+            
         }
     }
 </script>
@@ -34,13 +32,41 @@
 
 :::
 
-## 前置/后置
+## 带 Icon 的输入框
 
-:::demo
+:::demo 可以通过 before-icon 和 after-icon 属性在 input 组件首部和尾部增加显示图标
 
 ```html
-<div style="width: 200px">
-    <Input placeholder="请输入内容"></Input>
+<div>
+    <Input before-icon="sim-icon-rili" placeholder="请输入内容"></Input>
+    <Input after-icon="sim-icon-sousuo" placeholder="请输入内容"></Input>
+</div>
+```
+
+:::
+
+## 前置/后置 复合型输入框
+
+:::demo 通过前置和后置的 slot 可以实现复合型的输入框
+
+```html
+<div>
+    <Input placeholder="请输入内容">
+        <template slot="prepend">Http://</template>
+    </Input>
+</div>
+<br>
+<div>
+    <Input placeholder="请输入内容">
+        <Button slot="append" icon="sim-icon-sousuo"></Button>
+    </Input>
+</div>
+<br>
+<div>
+    <Input placeholder="请输入内容">
+        <Button slot="prepend" icon="sim-icon-icon_on_the_bottom" icon-position="right">请选择</Button>
+        <Button slot="append" icon="sim-icon-sousuo"></Button>
+    </Input>
 </div>
 ```
 
