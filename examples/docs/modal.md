@@ -1,3 +1,4 @@
+<!-- prettier-ignore -->
 <script>
     export default {
         data() {
@@ -22,13 +23,13 @@
 
 ```html
 <div>
-    <button type="primary" @click="showFirst = true">点击弹窗</button>
+    <Button type="primary" @click="showFirst = true">点击弹窗</Button>
     <Modal :show.sync="showFirst">
         <span slot="title">标题</span>
         <div slot="content"><img src="../assets/images/paragraph.png" /></div>
         <div slot="footer">
-            <button @click="showFirst=false">关闭</button>
-            <button @click="showFirst=false" type="success">确定</button>
+            <Button @click="showFirst=false">关闭</Button>
+            <Button @click="showFirst=false" type="success">确定</Button>
         </div>
     </Modal>
 </div>
@@ -42,19 +43,19 @@
 
 ```html
 <div>
-    <button type="primary" @click="showSecond=true;size='mini';">mini</button>
-    <button type="warning" @click="showSecond=true;size='small';">small</button>
-    <button type="primary" @click="showSecond=true;size='normal';">normal</button>
-    <button type="warning" @click="showSecond=true;size='big';">big</button>
-    <button type="primary" @click="showSecond=true;size='full';">full</button>
+    <Button type="primary" @click="showSecond=true;size='mini';">mini</Button>
+    <Button type="warning" @click="showSecond=true;size='small';">small</Button>
+    <Button type="primary" @click="showSecond=true;size='normal';">normal</Button>
+    <Button type="warning" @click="showSecond=true;size='big';">big</Button>
+    <Button type="primary" @click="showSecond=true;size='full';">full</Button>
     <Modal :show.sync="showSecond" :size="size">
         <span slot="title">标题</span>
         <div slot="content">
             <img src="../assets/images/paragraph.png" style="max-width:100%" />
         </div>
         <div slot="footer">
-            <button @click="showSecond=false">关闭</button>
-            <button @click="showSecond=false" type="success">确定</button>
+            <Button @click="showSecond=false">关闭</Button>
+            <Button @click="showSecond=false" type="success">确定</Button>
         </div>
     </Modal>
 </div>
@@ -68,15 +69,15 @@
 
 ```html
 <div>
-    <button type="primary" @click="showThird=true;">点我弹窗</button>
+    <Button type="primary" @click="showThird=true;">点我弹窗</Button>
     <Modal :show.sync="showThird" :center="true">
         <span slot="title">标题</span>
         <div slot="content">
             <img src="../assets/images/paragraph.png" style="max-width:100%" />
         </div>
         <div slot="footer">
-            <button @click="showThird=false">关闭</button>
-            <button @click="showThird=false" type="success">确定</button>
+            <Button @click="showThird=false">关闭</Button>
+            <Button @click="showThird=false" type="success">确定</Button>
         </div>
     </Modal>
 </div>
@@ -90,15 +91,15 @@
 
 ```html
 <div>
-    <button type="primary" @click="showFourth=true;">点我弹窗</button>
+    <Button type="primary" @click="showFourth=true;">点我弹窗</Button>
     <Modal :show.sync="showFourth" :show-dimmer="false">
         <span slot="title">标题</span>
         <div slot="content">
             <img src="../assets/images/paragraph.png" style="max-width:100%" />
         </div>
         <div slot="footer">
-            <button @click="showFourth=false">关闭</button>
-            <button @click="showFourth=false" type="success">确定</button>
+            <Button @click="showFourth=false">关闭</Button>
+            <Button @click="showFourth=false" type="success">确定</Button>
         </div>
     </Modal>
 </div>
