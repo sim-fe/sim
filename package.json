@@ -16,7 +16,8 @@
         "*.{js,json,css,scss,vue,md}": [
             "prettier --write",
             "git add"
-        ]
+        ],
+        "ignore": ["**/docs/*.md"]
     },
     "prettier": {
         "singleQuote": true,
