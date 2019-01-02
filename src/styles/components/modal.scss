@@ -6,7 +6,7 @@
     margin: 0 auto;
     background: $white;
     border-radius: $border-radius;
-    box-shadow: $box-shadow;
+    box-shadow: $modal-box-shadow;
 
     @include e(dimmer) {
         position: fixed;
@@ -17,7 +17,20 @@
         right: 0;
         overflow: auto;
         margin: 0;
-        background-color: $modal-dimmer-background;
+
+        @include m(visible) {
+            background-color: $modal-dimmer-background;
+            pointer-events: auto;
+        }
+
+        @include m(hide) {
+            background: none;
+            pointer-events: none;
+
+            & > .sim-modal {
+                pointer-events: auto;
+            }
+        }
     }
 
     @include e(header) {

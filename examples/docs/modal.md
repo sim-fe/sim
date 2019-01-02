@@ -2,9 +2,10 @@
     export default {
         data() {
             return {
-                showUsual: false,
-                showSize: false,
-                showCenter: false,
+                showFirst: false,
+                showSecond: false,
+                showThird: false,
+                showFourth: false,
                 size: ''
             };
         },
@@ -21,13 +22,13 @@
 
 ```html
 <div>
-    <button type="primary" @click="showUsual = true">点击弹窗</button>
-    <Modal :show.sync="showUsual">
+    <button type="primary" @click="showFirst = true">点击弹窗</button>
+    <Modal :show.sync="showFirst">
         <span slot="title">标题</span>
         <div slot="content"><img src="../assets/images/paragraph.png" /></div>
         <div slot="footer">
-            <button @click="showUsual=false">关闭</button>
-            <button @click="showUsual=false" type="success">确定</button>
+            <button @click="showFirst=false">关闭</button>
+            <button @click="showFirst=false" type="success">确定</button>
         </div>
     </Modal>
 </div>
@@ -41,19 +42,19 @@
 
 ```html
 <div>
-    <button type="primary" @click="showSize=true;size='mini';">mini</button>
-    <button type="warning" @click="showSize=true;size='small';">small</button>
-    <button type="primary" @click="showSize=true;size='normal';">normal</button>
-    <button type="warning" @click="showSize=true;size='big';">big</button>
-    <button type="primary" @click="showSize=true;size='full';">large</button>
-    <Modal :show.sync="showSize" :size="size">
+    <button type="primary" @click="showSecond=true;size='mini';">mini</button>
+    <button type="warning" @click="showSecond=true;size='small';">small</button>
+    <button type="primary" @click="showSecond=true;size='normal';">normal</button>
+    <button type="warning" @click="showSecond=true;size='big';">big</button>
+    <button type="primary" @click="showSecond=true;size='full';">full</button>
+    <Modal :show.sync="showSecond" :size="size">
         <span slot="title">标题</span>
         <div slot="content">
             <img src="../assets/images/paragraph.png" style="max-width:100%" />
         </div>
         <div slot="footer">
-            <button @click="showSize=false">关闭</button>
-            <button @click="showSize=false" type="success">确定</button>
+            <button @click="showSecond=false">关闭</button>
+            <button @click="showSecond=false" type="success">确定</button>
         </div>
     </Modal>
 </div>
@@ -67,15 +68,37 @@
 
 ```html
 <div>
-    <button type="primary" @click="showCenter=true;">点我弹窗</button>
-    <Modal :show.sync="showCenter" :center="true">
+    <button type="primary" @click="showThird=true;">点我弹窗</button>
+    <Modal :show.sync="showThird" :center="true">
         <span slot="title">标题</span>
         <div slot="content">
             <img src="../assets/images/paragraph.png" style="max-width:100%" />
         </div>
         <div slot="footer">
-            <button @click="showCenter=false">关闭</button>
-            <button @click="showCenter=false" type="success">确定</button>
+            <button @click="showThird=false">关闭</button>
+            <button @click="showThird=false" type="success">确定</button>
+        </div>
+    </Modal>
+</div>
+```
+
+:::
+
+## 隐藏遮罩层
+
+:::demo 使用`show-dimmer`属性来决定是否显示 Modal 的遮罩层。
+
+```html
+<div>
+    <button type="primary" @click="showFourth=true;">点我弹窗</button>
+    <Modal :show.sync="showFourth" :show-dimmer="false">
+        <span slot="title">标题</span>
+        <div slot="content">
+            <img src="../assets/images/paragraph.png" style="max-width:100%" />
+        </div>
+        <div slot="footer">
+            <button @click="showFourth=false">关闭</button>
+            <button @click="showFourth=false" type="success">确定</button>
         </div>
     </Modal>
 </div>

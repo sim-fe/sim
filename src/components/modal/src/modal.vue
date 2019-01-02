@@ -1,6 +1,18 @@
 <template>
-    <transition name="modal-fade" @before-enter="beforeEnter" @after-leave="afterLeave">
-        <div class="sim-modal__dimmer" v-show="show">
+    <transition
+        name="modal-fade"
+        @before-enter="beforeEnter"
+        @after-enter="afterEnter"
+        @before-leave="beforeLeave"
+        @after-leave="afterLeave"
+    >
+        <div
+            :class="[
+                'sim-modal__dimmer',
+                showDimmer ? 'sim-modal__dimmer--visible' : 'sim-modal__dimmer--hide'
+            ]"
+            v-show="show"
+        >
             <div :class="['sim-modal', 'sim-modal--' + size, className]" :style="style">
                 <div :class="['sim-modal__header', center ? 'sim-modal__header--center' : '']">
                     <slot name="title">
@@ -11,6 +23,7 @@
                         class="sim-modal__closebtn"
                         aria-label="Close"
                         @click="handleClose"
+                        v-if="showClose"
                     >
                         <i class="sim-icon-error"></i>
                     </button>
@@ -53,7 +66,11 @@ export default {
         },
         showDimmer: {
             type: Boolean,
-            default: false
+            default: true
+        },
+        showClose: {
+            type: Boolean,
+            default: true
         }
     },
     data() {
@@ -66,10 +83,18 @@ export default {
         beforeEnter() {
             var body = document.getElementsByTagName('body')
             body[0].style.overflow = 'hidden'
+            this.$emit('on-show')
+        },
+        afterEnter() {
+            this.$emit('on-visible')
+        },
+        beforeLeave() {
+            this.$emit('on-hide')
         },
         afterLeave() {
             var body = document.getElementsByTagName('body')
             body[0].style.overflow = 'auto'
+            this.$emit('on-hidden')
         }
     },
     watch: {
