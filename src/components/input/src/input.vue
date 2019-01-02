@@ -23,8 +23,8 @@
         </div>
         <input
             class="sim-input__input"
+            v-bind="$attrs"
             :type="type"
-            :placeholder="placeholder"
             :disabled="disabled"
             :readonly="readonly"
         />
@@ -40,11 +40,11 @@ export default {
             type: String,
             default: 'text'
         },
-        placeholder: String,
         disabled: Boolean,
         readonly: Boolean,
         beforeIcon: String,
-        afterIcon: String
+        afterIcon: String,
+        size: String
     },
     data() {
         return {}
