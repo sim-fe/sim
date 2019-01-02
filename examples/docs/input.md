@@ -1,5 +1,10 @@
 <script>
     export default {
+        data() {
+            return {
+                maxLen1: 10
+            }
+        },
         methods: {
             
         }
@@ -14,7 +19,7 @@
 
 ```html
 <div style="width: 200px">
-    <Input placeholder="请输入内容"></Input>
+    <Input placeholder="请输入内容" :maxlength="maxLen1"></Input>
 </div>
 <br>
 <div style="width: 200px">
@@ -28,6 +33,15 @@
 <div style="width: 200px">
     <Input placeholder="禁用" disabled />
 </div>
+<script>
+export default {
+  data() {
+        return {
+            maxLen1: 10
+        }
+    }
+}
+</script>
 ```
 
 :::
@@ -72,8 +86,19 @@
 
 :::
 
-### API 说明
+## API 说明
 
-| 参数 | 说明 | 类型 | 可选值 | 默认值 |
-| ---- | ---- | ---- | ------ | ------ |
+### props
 
+| 参数        | 说明                   | 类型            | 可选值 | 默认值 |
+| ----------- | ---------------------- | --------------- | ------ | ------ |
+| type        | 输入框类型，原生属性   | String          | -      | text   |
+| name        | 输入框类型，原生属性   | String          | -      | -      |
+| value       | 绑定的值               | String / Number | -      | -      |
+| maxlength   | 原生属性，最大输入长度 | Number          | -      | -      |
+| minlength   | 原生属性，最小输入长度 | Number          | -      | -      |
+| placeholder | 输入框占位文本         | String          | -      | -      |
+| disabled    | 输入框禁用             | Boolean         | -      | false  |
+| readonly    | 输入框只读             | Boolean         | -      | false  |
+| before-icon | 输入框前面带 icon      | String          | -      | -      |
+| after-icon  | 输入框后面带 icon      | String          | -      | -      |
