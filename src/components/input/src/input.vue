@@ -1,7 +1,7 @@
 <template>
     <div
         :class="[
-            type === 'textarea' ? 'sim-textarea' : 'sim-input',
+            'sim-input',
             {
                 'sim-input-group': $slots.prepend || $slots.append
             }
@@ -22,11 +22,15 @@
             <slot name="prepend"></slot>
         </div>
         <input
+            ref="input"
             class="sim-input__input"
             v-bind="$attrs"
+            v-on="$listeners"
             :type="type"
             :disabled="disabled"
             :readonly="readonly"
+            :value="value"
+            
         />
         <!-- 后置元素 -->
         <div class="sim-input-group__append" v-if="$slots.append"><slot name="append"></slot></div>
@@ -36,6 +40,7 @@
 export default {
     name: 'Input',
     props: {
+        value: [String, Number],
         type: {
             type: String,
             default: 'text'
@@ -48,6 +53,17 @@ export default {
     },
     data() {
         return {}
+    },
+    computed: {
+
+    },
+    methods: {
+        focus() {
+            this.$refs.input.focus();
+        },
+        blur() {
+            this.$refs.input.blur();
+        }
     }
 }
 </script>

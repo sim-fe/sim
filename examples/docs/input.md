@@ -2,10 +2,14 @@
     export default {
         data() {
             return {
-                maxLen1: 10
+                maxLen1: 10,
+                value1: '只能看不能写'
             }
         },
         methods: {
+             
+        },
+        mounted() {
             
         }
     }
@@ -27,7 +31,7 @@
 </div>
 <br>
 <div style="width: 200px">
-    <Input placeholder="只读" readonly></Input>
+    <Input placeholder="只读" :value="value1" readonly></Input>
 </div>
 <br>
 <div style="width: 200px">
@@ -37,7 +41,8 @@
 export default {
   data() {
         return {
-            maxLen1: 10
+            maxLen1: 10,
+            value1: '只能看不能写'
         }
     }
 }
@@ -102,3 +107,18 @@ export default {
 | readonly    | 输入框只读             | Boolean         | -      | false  |
 | before-icon | 输入框前面带 icon      | String          | -      | -      |
 | after-icon  | 输入框后面带 icon      | String          | -      | -      |
+
+### slots
+
+| 名称        | 说明                   |
+| ----------- | ---------------------- |
+| prepend | 输入框前置内容 |
+| append | 输入框后置内容 |
+
+### events
+
+| 事件名称        | 说明                   | 返回参数  |
+| ----------- | ---------------------- | ------------------ |
+| focus | 获得焦点时触发 | event |
+| blur | 失去焦点时触发 | event |
+| change | 在 Input 值改变时触发 | event |
