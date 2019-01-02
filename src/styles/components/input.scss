@@ -2,12 +2,13 @@
 @import '../minxins/index';
 @import '../extends/index';
 
-@include b (input) {
+@include b(input) {
     position: relative;
     display: inline-block;
     width: 100%;
     font-size: $font-size-base;
-    @include e (input) {
+    @include e(input) {
+        $input: & !global;
         width: 100%;
         box-sizing: border-box;
         height: $form-elem-height;
@@ -15,17 +16,17 @@
         font-size: inherit;
         color: $gray1;
         background: $white;
-        border: 1px solid $gray2;
+        border: 1px solid $boder-default-color;
         border-radius: $border-radius;
         outline: none;
         &::placeholder {
             color: $placeholder-color;
         }
-      
+
         &:hover {
             border-color: $hover-border;
         }
-    
+
         &:focus {
             outline: none;
             border-color: $focus-border;
@@ -40,5 +41,75 @@
                 border-color: lighten($disabled, 10%);
             }
         }
+    }
+
+    @include e(icon) {
+        position: absolute;
+        width: $form-elem-height;
+        line-height: $form-elem-height;
+        text-align: center;
+        @include m(left) {
+            left: 0;
+            & + #{$input} {
+                padding-left: $form-elem-height;
+            }
+        }
+        @include m(right) {
+            right: 0;
+            & + #{$input} {
+                padding-right: $form-elem-height;
+            }
+        }
+    }
+}
+
+@include b(input-group) {
+    line-height: normal;
+    display: inline-table;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    > #{$input} {
+        vertical-align: middle;
+        display: table-cell;
+    }
+    > #{$input}:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    > #{$input}:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    > #{$input}:not(:last-child):not(:first-child) {
+        border-radius: 0;
+    }
+    @include e((append, prepend)) {
+        width: 1px;
+        display: table-cell;
+        vertical-align: middle;
+        white-space: nowrap;
+        padding: 0 $padding-base;
+        color: $font-default-color;
+        background: lighten($boder-default-color, 10%);
+        border: 1px solid $boder-default-color;
+        border-radius: $border-radius;
+        .sim-button {
+            margin: -2px #{-$padding-base};
+            border-color: transparent;
+            background: transparent;
+            vertical-align: top;
+        }
+    }
+    @include e(prepend) {
+        border-right: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    @include e(append) {
+        border-left: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
     }
 }
