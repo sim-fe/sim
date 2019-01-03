@@ -1,5 +1,6 @@
 const MarkdownItContainer = require('markdown-it-container')
 const md = require('markdown-it')()
+const path = require('path')
 const wrapCustomClass = function(render) {
     return function(...args) {
         return render(...args)
@@ -62,6 +63,10 @@ const vueMarkdown = {
     ]
 }
 
+function resolve (dir) {
+    return path.join(__dirname, dir)
+}
+
 module.exports = {
     lintOnSave: true,
     pages: {
@@ -80,7 +85,10 @@ module.exports = {
             .end()
             .use('vue-markdown-loader')
             .loader('vue-markdown-loader/lib/markdown-compiler')
-            .options(vueMarkdown)
+            .options(vueMarkdown);
+        config.resolve.alias
+            .set('@', resolve('src'))
+            .set('components',resolve('src/components'))
     },
     css: {
         sourceMap: true,
