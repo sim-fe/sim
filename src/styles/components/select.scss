@@ -1,0 +1,47 @@
+@import '../variables/index';
+@import '../minxins/index';
+@import '../extends/index';
+$transtion: all 0.2s ease-in-out;
+@include b(select) {
+	display: inline-block;
+	position: relative;
+	font-size: $font-size-base;
+	.sim-input__input,
+	.sim-input__icon {
+		cursor: pointer;
+		transition: $transtion;
+		font-size: inherit;
+	}
+	@include m(show) {
+		.sim-input__icon {
+			transform: rotate(180deg);
+		}
+	}
+	@include e(dropdown) {
+		position: absolute;
+		width: 100%;
+		max-height: 200px;
+		overflow: auto;
+		margin-top: 5px;
+		border: 1px solid $boder-default-color;
+		background-color: $background-default-color;
+		box-sizing: border-box;
+		border-radius: $border-radius;
+		box-shadow: $select-box-shadow;
+		z-index: 9;
+	}
+	@include e(list) {
+		list-style: none;
+	}
+	@include e(option) {
+		padding: 7px 16px;
+		clear: both;
+		color: $font-default-color;
+		white-space: nowrap;
+		cursor: pointer;
+		transition: $transtion;
+		&:hover {
+			background: mix($primary, $background-default-color, 10%);
+		}
+	}
+}
