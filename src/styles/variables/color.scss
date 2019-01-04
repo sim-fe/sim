@@ -13,12 +13,12 @@ $orage: #ff7f50 !default;
 $red: #ee2c2c !default;
 
 $primary: $blue;
-$primary-light-1: lighten($blue, 10%) !default;
-$primary-light-2: lighten($blue, 20%) !default;
-$primary-light-3: lighten($blue, 30%) !default;
-$primary-light-4: lighten($blue, 40%) !default;
-$primary-light-5: lighten($blue, 50%) !default;
-$primary-dark-1: darken($blue, 10%) !default;
+$primary-light-1: lighten($primary, 10%) !default;
+$primary-light-2: lighten($primary, 20%) !default;
+$primary-light-3: lighten($primary, 30%) !default;
+$primary-light-4: lighten($primary, 40%) !default;
+$primary-light-5: lighten($primary, 50%) !default;
+$primary-dark-1: darken($primary, 10%) !default;
 $success: $green;
 $warning: $orage;
 $danger: $red;
@@ -26,6 +26,7 @@ $disabled: $gray;
 
 $font-default-color: $gray1;
 $boder-default-color: $gray2;
+$background-default-color: $white;
 
 $button-default-color: $gray1;
 $button-default-fill: $white;
