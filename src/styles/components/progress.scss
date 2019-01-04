@@ -1,0 +1,49 @@
+@import '../variables/index';
+@import '../minxins/index';
+
+@include b (progress) {
+    height: $progress-height-base;
+    font-size: $font-size-base;
+    padding: 0 $padding-base;
+    margin: 10px;
+    margin-right: 40px;
+    box-sizing: border-box;
+    background: $gray2;
+    color: $font-default-color;
+    border-radius: $border-radius;
+    vertical-align: middle;
+    outline: none;
+    position: relative;
+
+    @include e (bar) {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        border-radius: $border-radius;
+    }
+
+    @include e (indicator) {
+        position: absolute;
+        right: -40px;
+        width: 40px;
+        top: 0;
+        font-size: $font-size-base;
+        text-align: center;
+    }
+
+    @include button-color(primary, $white, $primary);
+    @include button-color(success, $white, $success);
+    @include button-color(warning, $white, $warning);
+    @include button-color(danger, $white, $danger);
+
+    @include progress-size(mini, 5px);
+    @include progress-size(small, 10px);
+    @include progress-size(big, 16px);
+    @include progress-size(large, 24px);
+
+    @at-root #{& + '--' + auto} {
+        width: 100%;
+        text-align: center;
+    }
+}

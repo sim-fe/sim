@@ -1,7 +1,7 @@
 // font
 $font-size-base: 12px;
 $font-size-1: $font-size-base;
-$font-size-2: $font-size-base + 2px;
+$font-size-2: $font-size-base+2px;
 
 // padding
 $padding-base: 15px;
@@ -14,7 +14,7 @@ $height-base: 32px;
 $button-height: $height-base;
 $button-height-small: $button-height - $height-interval;
 $button-height-mini: $button-height-small - $height-interval;
-$button-height-big: $button-height + $height-interval * 1.5;
+$button-height-big: $button-height+$height-interval * 1.5;
 $form-elem-height: $height-base;
 
 // border
@@ -41,3 +41,6 @@ $modal-width-small: 500px;
 $modal-width-normal: 700px;
 $modal-width-big: 1000px;
 $modal-width-full: 90%;
+
+// progress
+$progress-height-base: 16px;

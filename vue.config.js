@@ -1,8 +1,8 @@
 const MarkdownItContainer = require('markdown-it-container')
 const md = require('markdown-it')()
 const path = require('path')
-const wrapCustomClass = function(render) {
-    return function(...args) {
+const wrapCustomClass = function (render) {
+    return function (...args) {
         return render(...args)
             .replace('<code class="', '<code class="hljs ')
             .replace('<code>', '<code class="hljs">')
@@ -13,7 +13,7 @@ const vueMarkdown = {
     raw: true,
     preventExtract: true,
     preprocess: (MarkdownIt, source) => {
-        MarkdownIt.renderer.rules.table_open = function() {
+        MarkdownIt.renderer.rules.table_open = function () {
             return '<table class="table">'
         }
         MarkdownIt.renderer.rules.fence = wrapCustomClass(MarkdownIt.renderer.rules.fence)
@@ -31,7 +31,7 @@ const vueMarkdown = {
 
         // ```code`` 给这种样式加个class code_inline
         const code_inline = MarkdownIt.renderer.rules.code_inline
-        MarkdownIt.renderer.rules.code_inline = function(...args) {
+        MarkdownIt.renderer.rules.code_inline = function (...args) {
             args[0][args[1]].attrJoin('class', 'code_inline')
             return code_inline(...args)
         }
@@ -43,7 +43,7 @@ const vueMarkdown = {
             'demo',
             {
                 validate: params => params.trim().match(/^demo\s*(.*)$/),
-                render: function(tokens, idx) {
+                render: function (tokens, idx) {
                     var m = tokens[idx].info.trim().match(/^demo\s*(.*)$/)
                     if (tokens[idx].nesting === 1) {
                         var description = m && m.length > 1 ? m[1] : ''
@@ -63,7 +63,7 @@ const vueMarkdown = {
     ]
 }
 
-function resolve (dir) {
+function resolve(dir) {
     return path.join(__dirname, dir)
 }
 
@@ -88,7 +88,7 @@ module.exports = {
             .options(vueMarkdown);
         config.resolve.alias
             .set('@', resolve('src'))
-            .set('components',resolve('src/components'))
+            .set('components', resolve('src/components'))
     },
     css: {
         sourceMap: true,

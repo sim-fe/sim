@@ -9,48 +9,50 @@
 /* ========================================================================== */
 
 @mixin b($block) {
-  $B: $prefix-name + "-" + $block !global;
+  $B: $prefix-name + "-"+ $block !global;
+
   .#{$B} {
     @content;
-    }
+  }
 }
 
 @mixin e($element) {
   $E: $element !global;
   $selector: &;
   $currentSelector: "";
+
   @each $unit in $element {
     $currentSelector: #{$currentSelector +
-      "." +
-      $B +
-      $element-separator +
-      $unit +
-      ","};
+ "."+$B+$element-separator+$unit+","
   }
 
-  @at-root {
-    #{$currentSelector} {
-      @content;
-    }
+  ;
+}
+
+@at-root {
+  #{$currentSelector} {
+    @content;
   }
+}
 }
 
 @mixin m($modifier) {
   $selector: &;
   $currentSelector: "";
+
   @each $unit in $modifier {
     $currentSelector: #{$currentSelector +
-      & +
-      $modifier-separator +
-      $unit +
-      ","};
+ &+$modifier-separator+$unit+","
   }
 
-  @at-root {
-    #{$currentSelector} {
-      @content;
-    }
+  ;
+}
+
+@at-root {
+  #{$currentSelector} {
+    @content;
   }
+}
 }
 
 /* ========================================================================== */
@@ -58,39 +60,46 @@
 /* ========================================================================== */
 
 @mixin button-color($name, $color, $bgColor) {
-  $sel: & + "--" + $name;
+  $sel: & + "--"+ $name;
   $hoverColor: mix($color, $bgColor, 15%);
-  $disableColor:  mix($color, $bgColor, 50%);
+  $disableColor: mix($color, $bgColor, 50%);
+
   @at-root #{$sel} {
-      background: $bgColor;
+    background: $bgColor;
+    color: $color;
+    border-color: $bgColor;
+
+    &:focus,
+    &:hover {
       color: $color;
-      border-color: $bgColor;
-      &:focus,
-      &:hover {
-          color: $color;
-          background-color: $hoverColor;
-          border-color: $hoverColor;
+      background-color: $hoverColor;
+      border-color: $hoverColor;
+    }
+
+    &[disabled] {
+
+      &,
+      &:hover,
+      &:focus {
+        color: $color;
+        background-color: $disableColor;
+        border-color: $disableColor;
+        cursor: not-allowed;
       }
-      &[disabled] {
-          &,
-          &:hover,
-          &:focus {
-              color: $color;
-              background-color: $disableColor;
-              border-color: $disableColor;
-              cursor: not-allowed;
-          }
-      }
+    }
   }
 }
 
 @mixin button-size($name, $height, $fontSize: false, $padding: false) {
-  $sel: & + "--" + $name;
+  $sel: & + "--"+ $name;
+
   @at-root #{$sel} {
     height: $height;
+
     @if $padding {
       padding: 0 $padding;
     }
+
     @if $fontSize {
       font-size: $fontSize;
     }
@@ -102,8 +111,23 @@
 /* ========================================================================== */
 
 @mixin modal-size($name, $width) {
-  $sel: & + "--" + $name;
+  $sel: & + "--"+ $name;
+
   @at-root #{$sel} {
     width: $width;
+  }
+}
+
+/* ========================================================================== */
+/*                                    PROGRESS                                   */
+/* ========================================================================== */
+
+@mixin progress-size($name, $height) {
+  $sel: & + "--"+ $name;
+
+  @at-root #{$sel} {
+    height: $height;
+    line-height: $height;
+    font-size: $height;
   }
 }
