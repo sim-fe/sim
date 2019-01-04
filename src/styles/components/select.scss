@@ -28,7 +28,7 @@ $transtion: all 0.2s ease-in-out;
 		box-sizing: border-box;
 		border-radius: $border-radius;
 		box-shadow: $select-box-shadow;
-		transition: $transtion;
+		z-index: 9;
 	}
 	@include e(list) {
 		list-style: none;

@@ -8,13 +8,15 @@
         v-clickoutside="handleClose"
     >
         <Input ref="input" placeholder="请选择" readonly after-icon="sim-icon-icon_on_the_bottom"></Input>
-        <div class="sim-select__dropdown" v-show="visible">
+        <transition name="sim-fade">
+            <div class="sim-select__dropdown" v-show="visible">
             <ul class="sim-select__list">
                 <li class="sim-select__option">我是大家都放假附加费</li>
                 <li class="sim-select__option">我是大家都放假附加费</li>
                 <li class="sim-select__option">我是大家都放假附加费</li>
             </ul>
         </div>
+        </transition>
     </div>
 </template>
 <script>
