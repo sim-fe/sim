@@ -15,16 +15,16 @@
 	"lint-staged": {
 		"linters": {
 			"examples/**/*.{js, vue}": [
-                "prettier --write",
-                "eslint --fix",
+				"prettier --write",
+				"eslint --fix",
 				"git add"
-            ],
-            "src/**/*.{js, vue}": [
-                "prettier --write",
-                "eslint --fix",
+			],
+			"src/**/*.{js, vue}": [
+				"prettier --write",
+				"eslint --fix",
 				"git add"
-            ],
-            "src/**/*.{json, css, scss}": [
+			],
+			"src/**/*.{json, css, scss}": [
 				"prettier --write",
 				"git add"
 			]
@@ -38,6 +38,7 @@
 		"bracketSpacing": false
 	},
 	"dependencies": {
+		"deepmerge": "^3.0.0",
 		"vue": "^2.5.17",
 		"vue-router": "^3.0.2"
 	},
@@ -75,7 +76,10 @@
 			"vue/require-v-for-key": "off",
 			"vue/no-use-v-if-with-v-for": "off",
 			"vue/no-console": "off",
-			"vue/no-debugger": "off"
+			"vue/no-debugger": "off",
+			"no-debugger": "off",
+			"no-console": "off",
+			"vue/no-parsing-error": [2, {"x-invalid-end-tag": false }]
 		},
 		"parserOptions": {
 			"parser": "babel-eslint"
