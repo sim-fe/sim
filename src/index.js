@@ -5,10 +5,14 @@ import Input from './components/input'
 import Progress from './components/progress'
 import Select from './components/select'
 
+import locale from './locale'
+
 const components = [Button, Modal, ButtonGroup, Input, Select, Progress]
 
-const install = function(Vue) {
+const install = function(Vue, opts = {}) {
     if (install.installed) return
+    locale.use(opts.locale)
+    locale.i18n(opts.i18n)
     components.map(component => Vue.component(component.name, component))
 }
 
