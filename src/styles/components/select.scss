@@ -3,8 +3,9 @@
 @import '../extends/index';
 $transtion: all 0.2s ease-in-out;
 @include b(select) {
-	display: inline-block;
 	position: relative;
+	display: inline-block;
+	width: 100%;
 	font-size: $font-size-base;
 	.sim-input__input,
 	.sim-input__icon {
@@ -12,11 +13,15 @@ $transtion: all 0.2s ease-in-out;
 		transition: $transtion;
 		font-size: inherit;
 	}
+	.sim-input {
+		width: inherit;
+	}
 	@include m(show) {
 		.sim-input__icon {
 			transform: rotate(180deg);
 		}
 	}
+	
 	@include e(dropdown) {
 		position: absolute;
 		width: 100%;
@@ -41,7 +46,11 @@ $transtion: all 0.2s ease-in-out;
 		cursor: pointer;
 		transition: $transtion;
 		&:hover {
-			background: mix($primary, $background-default-color, 10%);
+			background: mix($primary, $background-default-color, 8%);
+		}
+		@include m(selected) {
+			background: mix($primary, $background-default-color, 8%);
+			color: $primary;
 		}
 	}
 }

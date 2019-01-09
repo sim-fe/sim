@@ -3,11 +3,12 @@ import Modal from './components/modal'
 import ButtonGroup from './components/button-group'
 import Input from './components/input'
 import Progress from './components/progress'
+import Option from './components/option'
 import Select from './components/select'
 
 import locale from './locale'
 
-const components = [Button, Modal, ButtonGroup, Input, Select, Progress]
+const components = [Button, Modal, ButtonGroup, Input, Select, Progress, Option]
 
 const install = function(Vue, opts = {}) {
     if (install.installed) return

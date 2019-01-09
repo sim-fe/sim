@@ -6,58 +6,109 @@
         ]"
         @click.stop="toggleMenu"
         v-clickoutside="handleClose"
+        :placeholder="placeholder"
     >
-        <Input ref="input" placeholder="请选择" readonly after-icon="sim-icon-icon_on_the_bottom"></Input>
+        <div class="sim-input">
+            <i class="sim-icon-icon_on_the_bottom sim-input__icon sim-input__icon--right"></i>
+            <input ref="input" type="text" v-model="query" :disabled="disabled" readonly :placeholder="placeholder" class="sim-input__input">
+        </div>
         <transition name="sim-fade">
             <div class="sim-select__dropdown" v-show="visible">
             <ul class="sim-select__list">
-                <li class="sim-select__option">我是大家都放假附加费</li>
-                <li class="sim-select__option">我是大家都放假附加费</li>
-                <li class="sim-select__option">我是大家都放假附加费</li>
+                <slot></slot>
             </ul>
         </div>
         </transition>
     </div>
 </template>
 <script>
-import Input from 'components/input'
+import Option from './option'
 import clickoutside from '@/directives/clickoutside'
+import { t } from '@/locale'
+
 export default {
     name: 'Select',
     directives: { clickoutside },
+    provide() {
+        return {
+            'select': this
+        }
+    },
     components: {
-      Input
+      /* eslint-disable-next-line */
+      Option
     },
     props: {
-        value: [String, Number],
-        type: {
+         multiple: {
+            type: Boolean,
+            default: false
+        },
+        value: {
+            type: [String, Number, Array],
+            default: ''
+        },
+        label: [String, Number, Array],
+        placeholder: {
             type: String,
-            default: 'text'
+            default: t('sim.select.placeholder')
+        },
+        name: {
+            type: String
         },
         disabled: Boolean,
         readonly: Boolean,
-        beforeIcon: String,
-        afterIcon: String,
         size: String
     },
     data() {
         return {
+            options: [],
+            sels: [],
+            query: '',
             visible: false
         }
+    },
+    created() {
+        if (this.value && !this.multiple) {
+            this.sels = this.value;
+        }
+    },
+    mounted () {
+        /* eslint-disable-next-line */
+        this.$on('on-select-selected', (option) => {
+            if (!this.multiple) {
+                this.query = option.label;
+                this.sels = option.value;
+                this.visible = false;
+            }
+        });
     },
     computed: {
 
     },
+    watch: {
+        sels (value) {
+            this.options.forEach(item => {
+                if (item.value === value) {
+                    this.query = item.label;
+                }
+            })
+        }
+    },
     methods: {
         toggleMenu() {
-            this.visible = !this.visible;
-            if (this.visible) {
-                this.$refs.input.focus();
+            if (!this.disabled) {
+                this.visible = !this.visible;
+                if (this.visible) {
+                    this.$refs.input.focus();
+                }
             }
         },
         handleClose() {
             this.visible = false;
-        }
+        },
+        hideMenu () {
+            this.visible = false;
+        },
     }
 }
 </script>

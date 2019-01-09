@@ -19,22 +19,28 @@
 
 ## 常用
 
-:::demo 使用`type`属性来定义 输入框类型, 用`readonly`,`disabled`属性 设置只读，禁用。
+:::demo
 
 ```html
-<div style="width: 200px">
-    <Select placeholder="请输入内容" :maxlength="maxLen1"></Select>
-</div>
-<br>
-<div style="width: 200px">
-    <Select placeholder="请输入内容" :maxlength="maxLen1"></Select>
+<div>
+    <Select value="1" style="width: 200px;">
+        <Option value="1">福州</Option>
+        <Option value="2">厦门</Option>
+        <Option value="3">泉州</Option>
+        <Option value="4">宁德</Option>
+    </Select>
+    <Select disabled value="2" style="width: 200px; margin-left: 20px;">
+        <Option value="1">福州</Option>
+        <Option value="2">厦门</Option>
+        <Option value="3">泉州</Option>
+        <Option value="4">宁德</Option>
+    </Select>
 </div>
 <script>
 export default {
   data() {
         return {
-            maxLen1: 10,
-            value1: '只能看不能写'
+            
         }
     }
 }
