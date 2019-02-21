@@ -57,6 +57,11 @@ export default {
                     desc: 'Modal 对话框',
                     name: 'modal',
                     path: '/modal'
+                },
+                {
+                    desc: 'Message 提示框',
+                    name: 'message',
+                    path: '/message'
                 }
             ]
         },
