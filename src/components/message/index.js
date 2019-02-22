@@ -2,7 +2,7 @@ import Messages from './src/messages.vue'
 import Vue from 'vue'
 
 let newInstance = properties => {
-    const _props = properties || {}
+    const _props = properties || {xxx: 'xxx'}
     const ins = new Vue({
         render(h) {
             return h(Messages, {
@@ -15,10 +15,12 @@ let newInstance = properties => {
     const component = ins.$mount() // 返回实例本身
     document.body.appendChild(component.$el)
 
+    const child = ins.$children[0]
+
     // 提供接口：添加/删除组件
     return {
         notice() {
-            Messages.add()
+            child.add()
         }
     }
 }

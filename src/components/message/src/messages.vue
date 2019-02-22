@@ -2,7 +2,7 @@
     <div>   
         <Message
             v-for="message in messages"
-            :class="message.a"
+            :key="message.a"
         ></Message>
     </div>
 </template>
@@ -11,6 +11,7 @@
 import Message from './message.vue';
 
 export default {
+    name: 'Messages',
     components: { Message },
     data() {
         return {
@@ -19,7 +20,10 @@ export default {
     },
     methods: {
         add() {
-            this.messages.push({});
+            this.messages.push({a: 'class1'});
+        },
+        destory() {
+            
         }
     },
 }

@@ -11,7 +11,6 @@
         },
         methods: {
             onClick() {
-                console.log('dfdffd')
                 this.$Message.info();
             }
         }
