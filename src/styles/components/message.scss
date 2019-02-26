@@ -1,0 +1,62 @@
+@import '../variables/index';
+@import '../minxins/index';
+
+@include b(message) {
+    position: relative;
+    width: $message-width-normal;
+    font-size: 14px;
+    line-height: 22px;
+    margin: 0 auto;
+    padding: 8px 0;
+
+    @include e(wrap) {
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        right: 0;
+        overflow: auto;
+        margin: 0;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    @include e(content) {
+        pointer-events: all;
+        padding: 8px 16px;
+        border-radius: 4px;
+        box-shadow: 0 1px 6px rgba(0,0,0,.2);
+        background: #fff;
+        position: relative;
+    }
+}
+
+/* ---------------------------------- 渐进动画 ---------------------------------- */
+.message-fade-enter-active {
+    animation: message-fade-in 0.3s;
+}
+.message-fade-leave-active {
+    animation: message-fade-out 0.3s;
+}
+
+@keyframes message-fade-in {
+    0% {
+        transform: translate3d(0, -20px, 0);
+        opacity: 0;
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes message-fade-out {
+    0% {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate3d(0, -20px, 0);
+        opacity: 0;
+    }
+}

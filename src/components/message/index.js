@@ -1,8 +1,16 @@
 import Messages from './src/messages.vue'
 import Vue from 'vue'
 
+let messageInstance // messages实例
+const defaults = {
+    top: 24,
+    duration: 1.5
+}
+const prefixId = 'sim-message'
+let name = 1
+
 let newInstance = properties => {
-    const _props = properties || {xxx: 'xxx'}
+    const _props = properties || {}
     const ins = new Vue({
         render(h) {
             return h(Messages, {
@@ -17,18 +25,18 @@ let newInstance = properties => {
 
     const child = ins.$children[0]
 
-    // 提供接口：添加/删除组件
-    return {
-        notice() {
-            child.add()
-        }
-    }
+    return child
 }
 
-let messageInstance
 function getMessageInstance() {
     // 保证实例唯一
-    messageInstance = messageInstance || newInstance()
+    messageInstance =
+        messageInstance ||
+        newInstance({
+            styles: {
+                top: `${defaults.top}px`
+            }
+        })
     return messageInstance
 }
 
@@ -36,11 +44,15 @@ export default {
     name: 'Message',
 
     info() {
-        return this.message()
+        return this.message('info')
     },
-    message() {
+    message(type) {
         let ins = getMessageInstance()
-        ins.notice()
+        ins.add({
+            name: `${prefixId}${name}`,
+            type: type
+        })
+        name++
     }
 }
 

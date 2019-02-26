@@ -1,8 +1,9 @@
 <template>
-    <div>   
+    <div :class="['sim-message__wrap']" :style="wrapStyles">   
         <Message
             v-for="message in messages"
-            :key="message.a"
+            :key="message.name"
+            :name="message.name"
         ></Message>
     </div>
 </template>
@@ -13,19 +14,45 @@ import Message from './message.vue';
 export default {
     name: 'Messages',
     components: { Message },
+    props: {
+        styles: {
+            type: Object,
+            default: function () {
+                return {
+                };
+            }
+        }
+    },
     data() {
         return {
             messages: []
         }
     },
     methods: {
-        add() {
-            this.messages.push({a: 'class1'});
+        add(props) {
+            this.messages.push(props);
+        },
+        close(name) {
+            const messages = this.messages;
+            for (let i = 0; i < messages.length; i++) {
+                if (messages[i].name === name) {
+                    this.messages.splice(i, 1);
+                    break;
+                }
+            }
         },
         destory() {
             
         }
     },
+    computed: {
+        wrapStyles() {
+            let styles = Object.assign({}, this.styles);
+            /* styles['z-index'] = 1010 + this.tIndex;
+ */
+            return styles;
+        }
+    }
 }
 </script>
 

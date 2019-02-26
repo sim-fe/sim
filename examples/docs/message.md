@@ -17,15 +17,15 @@
     }
 </script>
 
-# Modal 对话框
+# Message 消息提示框
 
 ## 常用
 
-:::demo 一个常用的 Modal。
+:::demo 一个常用的 Message。
 
 ```html
 <div>
-    <Button type="primary" @click="onClick">点击弹窗</Button>
+    <Button type="primary" @click="onClick">点击</Button>
 </div>
 ```
 
