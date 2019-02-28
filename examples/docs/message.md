@@ -11,7 +11,7 @@
         },
         methods: {
             onClick() {
-                this.$Message.info();
+                this.$Message.info({duration: 105});
             }
         }
     }

@@ -3,7 +3,7 @@ import Vue from 'vue'
 
 let messageInstance // messages实例
 const defaults = {
-    top: 24,
+    top: 15,
     duration: 1.5
 }
 const prefixId = 'sim-message'
@@ -43,15 +43,17 @@ function getMessageInstance() {
 export default {
     name: 'Message',
 
-    info() {
-        return this.message('info')
+    info(options = {}) {
+        return this.message('info', options)
     },
-    message(type) {
+    message(type, options) {
         let ins = getMessageInstance()
-        ins.add({
-            name: `${prefixId}${name}`,
-            type: type
-        })
+        ins.add(
+            Object.assign(options, {
+                name: `${prefixId}${name}`,
+                type: type
+            })
+        )
         name++
     }
 }

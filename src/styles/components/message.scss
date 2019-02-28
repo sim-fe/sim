@@ -2,23 +2,24 @@
 @import '../minxins/index';
 
 @include b(message) {
-    position: relative;
     width: $message-width-normal;
     font-size: 14px;
     line-height: 22px;
     margin: 0 auto;
     padding: 8px 0;
+    transition: height 0.5s ease-in-out, padding 0.5s ease-in-out;
 
     @include e(wrap) {
         position: fixed;
         z-index: 9999;
-        top: 0;
+        top: 15;
         left: 0;
         right: 0;
-        overflow: auto;
+        overflow: visible;
         margin: 0;
         text-align: center;
         padding: 10px 0;
+        pointer-events: none;
     }
 
     @include e(content) {
@@ -33,30 +34,36 @@
 
 /* ---------------------------------- 渐进动画 ---------------------------------- */
 .message-fade-enter-active {
-    animation: message-fade-in 0.3s;
+    animation: message-fade-in 0.5s;
 }
 .message-fade-leave-active {
-    animation: message-fade-out 0.3s;
+    animation: message-fade-out .5s;
 }
 
 @keyframes message-fade-in {
     0% {
-        transform: translate3d(0, -20px, 0);
+        transform-origin: 0 0;
+        transform: translateY(-20px);
         opacity: 0;
     }
     100% {
-        transform: translate3d(0, 0, 0);
+        transform-origin: 0 0;
+        transform: translateY(0);
         opacity: 1;
     }
 }
 
 @keyframes message-fade-out {
     0% {
-        transform: translate3d(0, 0, 0);
+        transform-origin: 0 0;
+        transform: translateY(0);
         opacity: 1;
     }
     100% {
-        transform: translate3d(0, -20px, 0);
+        transform-origin: 0 0;
+        transform: translateY(-20px);
+        height: 0;
         opacity: 0;
+        padding: 0;
     }
 }
