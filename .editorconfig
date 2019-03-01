@@ -1,0 +1,16 @@
+# 此文件用于统一不同编辑器和IDE的编码样式。
+# 官网 editorconfig.org
+
+# top-most EditorConfig file
+
+# webstorm 默认支持这个配置 vscode, sublime需要装插件EditorConfig插件才能支持
+root = true
+
+# every file
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
