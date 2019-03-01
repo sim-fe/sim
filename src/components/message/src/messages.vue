@@ -4,6 +4,7 @@
             v-for="message in messages"
             :key="message.name"
             :name="message.name"
+            :duration="message.duration"
         ></Message>
     </div>
 </template>
@@ -29,8 +30,8 @@ export default {
         }
     },
     methods: {
-        add(props) {
-            this.messages.push(props);
+        add(options) {
+            this.messages.push(options);
         },
         close(name) {
             const messages = this.messages;

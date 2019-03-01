@@ -1,5 +1,5 @@
 <template>
-    <transition name="message-fade">
+    <transition name="message-fade" @enter="handleEnter">
         <div class="sim-message">
             <div class="sim-message__content">这是消息弹出框
                 <slot name="content"></slot>
@@ -41,6 +41,10 @@ export default {
     },
     methods: {
         handleClose() {
+        },
+        handleEnter (el) {
+            el.style.height = el.scrollHeight + 'px';
+            console.log(el);
         },
         clearCloseTimer() {
             if (this.closeTimer) {
