@@ -35,10 +35,7 @@
 			&,
 			&:hover,
 			&:focus {
-				color: $disabled;
-				background-color: lighten($disabled, 15%);
-				cursor: not-allowed;
-				border-color: lighten($disabled, 10%);
+				@include disabled;
 			}
 		}
 	}
