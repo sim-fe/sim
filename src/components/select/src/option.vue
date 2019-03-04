@@ -2,13 +2,15 @@
     <li
         class="sim-select__option"
         :class="{
-            'sim-select__option--selected': isSelected,
+            'sim-select__option--selected': isSelected
         }"
-        :disabled = "disabled"
+        :disabled="disabled"
         @click.stop="doSelect"
         ref="option"
     >
-        <div><slot>{{defaultLabel}}</slot></div>
+        <div>
+            <slot>{{ defaultLabel }}</slot>
+        </div>
     </li>
 </template>
 <script>
@@ -24,37 +26,31 @@ export default {
         },
         disabled: Boolean
     },
-     mixins: [ Emitter ],
+    mixins: [Emitter],
     inject: ['select'],
     data() {
-        return {
-
-        }
+        return {}
     },
     computed: {
-        defaultLabel () {
-            let label = this.label ? this.label : this.value;
-            return label;
+        defaultLabel() {
+            let label = this.label ? this.label : this.value
+            return label
         },
-        isSelected () {
-            return this.select.sels === this.value;
+        isSelected() {
+            return this.select.sels === this.value
         }
     },
-    watch: {
-
-    },
+    watch: {},
     methods: {
-        doSelect () {
-            if (this.disabled) return;
+        doSelect() {
+            if (this.disabled) return
             this.dispatch('Select', 'on-select-selected', {
                 value: this.value,
                 label: this.label || (this.$el && this.$el.textContent)
-            });
+            })
         }
     },
-    created() {
-
-    },
+    created() {},
     mounted() {
         this.select.options.push({
             context: this,

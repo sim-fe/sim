@@ -14,15 +14,11 @@
 	},
 	"lint-staged": {
 		"linters": {
-			"examples/**/*.{js, vue}": [
+			"examples/**/*.{js,vue}": [
 				"prettier --write",
 				"git add"
 			],
-			"src/**/*.{js, vue}": [
-				"prettier --write",
-				"git add"
-			],
-			"src/**/*.{json, css, scss}": [
+			"src/**/*.{js,vue,json,css,scss}": [
 				"prettier --write",
 				"git add"
 			]
