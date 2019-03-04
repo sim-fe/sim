@@ -4,6 +4,7 @@
             v-for="message in messages"
             :key="message.name"
             :name="message.name"
+            :content="message.content"
             :duration="message.duration"
         ></Message>
     </div>
@@ -19,8 +20,7 @@ export default {
         styles: {
             type: Object,
             default: function () {
-                return {
-                };
+                return {};
             }
         }
     },

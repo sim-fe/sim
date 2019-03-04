@@ -44,7 +44,8 @@ $modal-width-big: 1000px;
 $modal-width-full: 90%;
 
 /* --------------------------------- messsge -------------------------------- */
-$message-width-normal: 200px;
+$message-min-width: 200px;
+$message-max-width: 500px;
 
 // progress
 $progress-height-base: 16px;

@@ -43,11 +43,12 @@ function getMessageInstance() {
 export default {
     name: 'Message',
 
-    info(options = {}) {
+    info(options) {
         return this.message('info', options)
     },
     message(type, options) {
         let ins = getMessageInstance()
+        options = this.fmtOptions(options)
         ins.add(
             Object.assign(options, {
                 name: `${prefixId}${name}`,
@@ -55,11 +56,19 @@ export default {
             })
         )
         name++
+    },
+    // options 可能为 空 、字符串 或 json，这里规范返回json
+    fmtOptions(options) {
+        if (!options) {
+            return {
+                content: ''
+            }
+        }
+        if (typeof options === 'string') {
+            return {
+                content: options
+            }
+        }
+        return options
     }
 }
-
-/* Message.install = function (Vue) {
-    Vue.component(Message.name, Modal);
-};
-
-export default Message; */

@@ -91,6 +91,12 @@
                 <div class="name">日历</div>
                 <div class="fontclass">.sim-icon-rili</div>
             </li>
+
+            <li>
+                <i class="icon sim-icon-info"></i>
+                <div class="name">11111</div>
+                <div class="fontclass">.sim-icon-rili</div>
+            </li>
         </ul>
 
         <h2 id="font-class-">字体图标-class引用</h2>

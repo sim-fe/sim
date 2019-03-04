@@ -1,18 +1,19 @@
 <template>
     <transition name="message-fade" @enter="handleEnter">
         <div class="sim-message">
-            <div class="sim-message__content">这是消息弹出框
-                <slot name="content"></slot>
+            <div ref="content" class="sim-message__content">
+                <i class="sim-message__content-icon sim-icon-info_circular"></i>
+                <div class="sim-message__content-text" v-html="content"></div>
+                <button
+                    type="button"
+                    class="sim-message__closebtn"
+                    aria-label="Close"
+                    @click="handleClose"
+                    v-if="showClose"
+                >
+                    <i class="sim-icon-error"></i>
+                </button>
             </div>
-            <button
-                type="button"
-                class="sim-message__closebtn"
-                aria-label="Close"
-                @click="handleClose"
-                v-if="showClose"
-            >
-                <i class="sim-icon-error"></i>
-            </button>
         </div>
     </transition>
 </template>
@@ -24,6 +25,10 @@ export default {
         name: {
             type: String,
             required: true
+        },
+        content: {
+            type: String,
+            default: ''
         },
         // 显示时间 单位s 值为0时不自动关闭
         duration: {
@@ -42,9 +47,8 @@ export default {
     methods: {
         handleClose() {
         },
-        handleEnter (el) {
-            el.style.height = el.scrollHeight + 'px';
-            console.log(el);
+        handleEnter(el) {
+            el.style.height = el.scrollHeight + 'px'; // scrollHeight 包括了content padding border 和 未滚动到的区域
         },
         clearCloseTimer() {
             if (this.closeTimer) {

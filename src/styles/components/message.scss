@@ -1,12 +1,11 @@
-@import '../variables/index';
-@import '../minxins/index';
+@import "../variables/index";
+@import "../minxins/index";
 
 @include b(message) {
-    width: $message-width-normal;
+    box-sizing: border-box;
     font-size: 14px;
     line-height: 22px;
-    margin: 0 auto;
-    padding: 8px 0;
+    padding: 8px;
     transition: height 0.5s ease-in-out, padding 0.5s ease-in-out;
 
     @include e(wrap) {
@@ -23,12 +22,26 @@
     }
 
     @include e(content) {
+        min-width: $message-min-width;
+        max-width: $message-max-width;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         pointer-events: all;
         padding: 8px 16px;
         border-radius: 4px;
-        box-shadow: 0 1px 6px rgba(0,0,0,.2);
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
         background: #fff;
         position: relative;
+        min-height: 20px;
+
+        &-icon {
+            padding-right: 5px;
+        }
+
+        &-text {
+            display: inline;
+        }
     }
 }
 
@@ -37,7 +50,7 @@
     animation: message-fade-in 0.5s;
 }
 .message-fade-leave-active {
-    animation: message-fade-out .5s;
+    animation: message-fade-out 0.5s;
 }
 
 @keyframes message-fade-in {
