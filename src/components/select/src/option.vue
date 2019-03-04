@@ -1,9 +1,10 @@
 <template>
-    <li 
+    <li
         class="sim-select__option"
         :class="{
             'sim-select__option--selected': isSelected,
         }"
+        :disabled = "disabled"
         @click.stop="doSelect"
         ref="option"
     >
@@ -27,7 +28,7 @@ export default {
     inject: ['select'],
     data() {
         return {
-            
+
         }
     },
     computed: {
@@ -40,10 +41,11 @@ export default {
         }
     },
     watch: {
-        
+
     },
     methods: {
         doSelect () {
+            if (this.disabled) return;
             this.dispatch('Select', 'on-select-selected', {
                 value: this.value,
                 label: this.label || (this.$el && this.$el.textContent)
@@ -51,7 +53,7 @@ export default {
         }
     },
     created() {
-        
+
     },
     mounted() {
         this.select.options.push({

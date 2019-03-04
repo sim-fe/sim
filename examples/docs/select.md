@@ -7,10 +7,10 @@
             }
         },
         methods: {
-             
+
         },
         mounted() {
-            
+
         }
     }
 </script>
@@ -29,6 +29,14 @@
         <Option value="3">泉州</Option>
         <Option value="4">宁德</Option>
     </Select>
+
+    <Select value="" style="width: 200px; margin-left: 20px;">
+        <Option disabled value="1">福州</Option>
+        <Option value="2">厦门</Option>
+        <Option value="3">泉州</Option>
+        <Option value="4">宁德</Option>
+    </Select>
+
     <Select disabled value="2" style="width: 200px; margin-left: 20px;">
         <Option value="1">福州</Option>
         <Option value="2">厦门</Option>
@@ -40,7 +48,7 @@
 export default {
   data() {
         return {
-            
+
         }
     }
 }
