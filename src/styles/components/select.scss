@@ -21,7 +21,7 @@ $transtion: all 0.2s ease-in-out;
 			transform: rotate(180deg);
 		}
 	}
-	
+
 	@include e(dropdown) {
 		position: absolute;
 		width: 100%;
@@ -47,6 +47,15 @@ $transtion: all 0.2s ease-in-out;
 		transition: $transtion;
 		&:hover {
 			background: mix($primary, $background-default-color, 8%);
+        }
+        &[disabled] {
+			&,
+			&:hover,
+			&:focus {
+                cursor: not-allowed;
+                color: $font-disabled-color;
+                background: none;
+			}
 		}
 		@include m(selected) {
 			background: mix($primary, $background-default-color, 8%);
