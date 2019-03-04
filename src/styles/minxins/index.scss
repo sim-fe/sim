@@ -1,8 +1,14 @@
 @import "../variables/nameSpace";
+@import '../variables/index';
 /* ========================================================================== */
 /*                                    common                                  */
 /* ========================================================================== */
-
+@mixin disabled {
+    color: $font-disabled-color;
+	background-color: $background-disabled-color;
+	cursor: not-allowed;
+	border-color: $boder-disabled-color;
+}
 
 /* ========================================================================== */
 /*                                     BEM                                    */

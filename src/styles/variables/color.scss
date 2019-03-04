@@ -24,6 +24,10 @@ $warning: $orage;
 $danger: $red;
 $disabled: $gray;
 
+$font-disabled-color: $disabled;
+$background-disabled-color: lighten($disabled, 15%);
+$boder-disabled-color: lighten($disabled, 10%);
+
 $font-default-color: $gray1;
 $boder-default-color: $gray2;
 $background-default-color: $white;
