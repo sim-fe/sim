@@ -2,12 +2,13 @@
     export default {
         data() {
             return {
-                maxLen1: 10,
-                value1: '只能看不能写'
+
             }
         },
         methods: {
-
+            onChange (value) {
+                console.log(value)
+            }
         },
         mounted() {
 
@@ -19,7 +20,7 @@
 
 ## 常用
 
-:::demo
+:::demo 使用`value`设置选中值 使用`disabled` 属性禁用选择器, 或者禁用某个选项
 
 ```html
 <div>
@@ -30,7 +31,7 @@
         <Option value="4">宁德</Option>
     </Select>
 
-    <Select value="" style="width: 200px; margin-left: 20px;">
+    <Select value="" placeholder="请选择城市" style="width: 200px; margin-left: 20px;">
         <Option disabled value="1">福州</Option>
         <Option value="2">厦门</Option>
         <Option value="3">泉州</Option>
@@ -57,6 +58,37 @@ export default {
 
 :::
 
+## 可清空选择
+
+:::demo
+
+```html
+<div>
+    <Select value="1" clearable style="width: 200px;" @on-change="onChange">
+        <Option value="1">福州</Option>
+        <Option value="2">厦门</Option>
+        <Option value="3">泉州</Option>
+        <Option value="4">宁德</Option>
+    </Select>
+</div>
+<script>
+export default {
+    data() {
+        return {
+
+        }
+    },
+    methods: {
+        onChange (value) {
+            console.log(value)
+        }
+    }
+}
+</script>
+```
+
+:::
+
 
 
 ## API 说明
@@ -65,16 +97,9 @@ export default {
 
 | 参数        | 说明                   | 类型            | 可选值 | 默认值 |
 | ----------- | ---------------------- | --------------- | ------ | ------ |
-| type        | 输入框类型，原生属性   | String          | -      | text   |
-| name        | 输入框类型，原生属性   | String          | -      | -      |
 | value       | 绑定的值               | String / Number | -      | -      |
-| maxlength   | 原生属性，最大输入长度 | Number          | -      | -      |
-| minlength   | 原生属性，最小输入长度 | Number          | -      | -      |
-| placeholder | 输入框占位文本         | String          | -      | -      |
-| disabled    | 输入框禁用             | Boolean         | -      | false  |
-| readonly    | 输入框只读             | Boolean         | -      | false  |
-| before-icon | 输入框前面带 icon      | String          | -      | -      |
-| after-icon  | 输入框后面带 icon      | String          | -      | -      |
+| placeholder | 选择框占位文本         | String          | -      | -      |
+| disabled    | 禁用             | Boolean         | -      | false  |
 
 ### slots
 
@@ -87,6 +112,4 @@ export default {
 
 | 事件名称        | 说明                   | 返回参数  |
 | ----------- | ---------------------- | ------------------ |
-| focus | 获得焦点时触发 | event |
-| blur | 失去焦点时触发 | event |
-| change | 在 Input 值改变时触发 | event |
+| on-change | 值改变时触发 | event |

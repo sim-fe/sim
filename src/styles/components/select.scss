@@ -1,65 +1,80 @@
 @import '../variables/index';
 @import '../minxins/index';
 @import '../extends/index';
-$transtion: all 0.2s ease-in-out;
+$transtion: transform 0.2s ease-in-out;
 @include b(select) {
-	position: relative;
-	display: inline-block;
-	width: 100%;
-	font-size: $font-size-base;
-	.sim-input__input,
-	.sim-input__icon {
-		cursor: pointer;
-		transition: $transtion;
-		font-size: inherit;
-	}
-	.sim-input {
-		width: inherit;
-	}
-	@include m(show) {
-		.sim-input__icon {
-			transform: rotate(180deg);
-		}
-	}
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    font-size: $font-size-base;
+    .sim-input__input,
+    .sim-select__arrow {
+        cursor: pointer;
+        transition: $transtion;
+        font-size: inherit;
+    }
+    .sim-input {
+        width: inherit;
+    }
+    @include m(show) {
+        .sim-input__icon {
+            transform: rotate(180deg);
+        }
+    }
 
-	@include e(dropdown) {
-		position: absolute;
-		width: 100%;
-		max-height: 200px;
-		overflow: auto;
-		margin-top: 5px;
-		border: 1px solid $boder-default-color;
-		background-color: $background-default-color;
-		box-sizing: border-box;
-		border-radius: $border-radius;
-		box-shadow: $select-box-shadow;
-		z-index: 9;
-	}
-	@include e(list) {
-		list-style: none;
-	}
-	@include e(option) {
-		padding: 7px 16px;
-		clear: both;
-		color: $font-default-color;
-		white-space: nowrap;
-		cursor: pointer;
-		transition: $transtion;
-		&:hover {
-			background: mix($primary, $background-default-color, 8%);
+    @include m(clear) {
+        .sim-select__clear {
+            cursor: pointer;
+            display: none;
+        }
+        &:hover {
+            .sim-select__arrow {
+                opacity: 0;
+            }
+            .sim-select__clear {
+                display: block;
+            }
+        }
+    }
+
+    @include e(dropdown) {
+        position: absolute;
+        width: 100%;
+        max-height: 200px;
+        overflow: auto;
+        margin-top: 5px;
+        border: 1px solid $boder-default-color;
+        background-color: $background-default-color;
+        box-sizing: border-box;
+        border-radius: $border-radius;
+        box-shadow: $select-box-shadow;
+        z-index: 9;
+    }
+    @include e(list) {
+        list-style: none;
+    }
+    @include e(option) {
+        padding: 7px 16px;
+        clear: both;
+        color: $font-default-color;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: $transtion;
+        &:hover {
+            background: mix($primary, $background-default-color, 8%);
         }
         &[disabled] {
-			&,
-			&:hover,
-			&:focus {
+            &,
+            &:hover,
+            &:focus {
                 cursor: not-allowed;
                 color: $font-disabled-color;
                 background: none;
-			}
-		}
-		@include m(selected) {
-			background: mix($primary, $background-default-color, 8%);
-			color: $primary;
-		}
-	}
+            }
+        }
+        @include m(selected) {
+            background: mix($primary, $background-default-color, 8%);
+            color: $primary;
+        }
+    }
 }
