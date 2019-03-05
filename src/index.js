@@ -6,10 +6,11 @@ import Progress from './components/progress';
 import Option from './components/option';
 import Select from './components/select';
 import Message from './components/message';
+import Tag from './components/tag';
 
 import locale from './locale';
 
-const components = [Button, Modal, ButtonGroup, Input, Select, Progress, Option, Message];
+const components = [Button, Modal, ButtonGroup, Input, Select, Progress, Option, Message, Tag];
 
 const install = function(Vue, opts = {}) {
     if (install.installed) return;

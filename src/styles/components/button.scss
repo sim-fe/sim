@@ -1,7 +1,7 @@
 @import '../variables/index';
 @import '../minxins/index';
 
-@include b (button) {
+@include b(button) {
     display: inline-block;
     height: $button-height;
     font-size: $font-size-base;
@@ -14,7 +14,7 @@
     vertical-align: middle;
     outline: none;
     cursor: pointer;
-    i[class*=sim-icon] {
+    i[class*='sim-icon'] {
         font-size: 14px;
         vertical-align: middle;
         line-height: 1;
@@ -24,7 +24,7 @@
     }
     span {
         vertical-align: middle;
-        & + i[class*=sim-icon] {
+        & + i[class*='sim-icon'] {
             margin-left: 4px;
         }
     }
@@ -50,9 +50,9 @@
     @include button-color(warning, $white, $warning);
     @include button-color(danger, $white, $danger);
 
-    @include button-size(mini, $button-height-mini, false, $button-mini-padding);
-    @include button-size(small, $button-height-small, false, $button-small-padding);
-    @include button-size(big, $button-height-big, $font-size-2);
+    @include set-size(mini, $button-height-mini, false, $button-mini-padding);
+    @include set-size(small, $button-height-small, false, $button-small-padding);
+    @include set-size(big, $button-height-big, $font-size-2);
 
     @at-root #{& + '--' + auto} {
         width: 100%;

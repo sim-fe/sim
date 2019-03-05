@@ -1,13 +1,29 @@
-@import "../variables/nameSpace";
+@import '../variables/nameSpace';
 @import '../variables/index';
 /* ========================================================================== */
 /*                                    common                                  */
 /* ========================================================================== */
 @mixin disabled {
     color: $font-disabled-color;
-	background-color: $background-disabled-color;
-	cursor: not-allowed;
-	border-color: $boder-disabled-color;
+    background-color: $background-disabled-color;
+    cursor: not-allowed;
+    border-color: $boder-disabled-color;
+}
+
+@mixin set-size($name, $height, $fontSize: false, $padding: false) {
+    $sel: & + '--' + $name;
+
+    @at-root #{$sel} {
+        height: $height;
+
+        @if $padding {
+            padding: 0 $padding;
+        }
+
+        @if $fontSize {
+            font-size: $fontSize;
+        }
+    }
 }
 
 /* ========================================================================== */
@@ -15,50 +31,42 @@
 /* ========================================================================== */
 
 @mixin b($block) {
-  $B: $prefix-name + "-"+ $block !global;
+    $B: $prefix-name + '-' + $block !global;
 
-  .#{$B} {
-    @content;
-  }
+    .#{$B} {
+        @content;
+    }
 }
 
 @mixin e($element) {
-  $E: $element !global;
-  $selector: &;
-  $currentSelector: "";
+    $E: $element !global;
+    $selector: &;
+    $currentSelector: '';
 
-  @each $unit in $element {
-    $currentSelector: #{$currentSelector +
- "."+$B+$element-separator+$unit+","
-  }
+    @each $unit in $element {
+        $currentSelector: #{$currentSelector + '.' + $B + $element-separator + $unit + ','};
+    }
 
-  ;
-}
-
-@at-root {
-  #{$currentSelector} {
-    @content;
-  }
-}
+    @at-root {
+        #{$currentSelector} {
+            @content;
+        }
+    }
 }
 
 @mixin m($modifier) {
-  $selector: &;
-  $currentSelector: "";
+    $selector: &;
+    $currentSelector: '';
 
-  @each $unit in $modifier {
-    $currentSelector: #{$currentSelector +
- &+$modifier-separator+$unit+","
-  }
+    @each $unit in $modifier {
+        $currentSelector: #{$currentSelector + & + $modifier-separator + $unit + ','};
+    }
 
-  ;
-}
-
-@at-root {
-  #{$currentSelector} {
-    @content;
-  }
-}
+    @at-root {
+        #{$currentSelector} {
+            @content;
+        }
+    }
 }
 
 /* ========================================================================== */
@@ -66,50 +74,33 @@
 /* ========================================================================== */
 
 @mixin button-color($name, $color, $bgColor) {
-  $sel: & + "--"+ $name;
-  $hoverColor: mix($color, $bgColor, 15%);
-  $disableColor: mix($color, $bgColor, 50%);
+    $sel: & + '--' + $name;
+    $hoverColor: mix($color, $bgColor, 15%);
+    $disableColor: mix($color, $bgColor, 50%);
 
-  @at-root #{$sel} {
-    background: $bgColor;
-    color: $color;
-    border-color: $bgColor;
-
-    &:focus,
-    &:hover {
-      color: $color;
-      background-color: $hoverColor;
-      border-color: $hoverColor;
-    }
-
-    &[disabled] {
-
-      &,
-      &:hover,
-      &:focus {
+    @at-root #{$sel} {
+        background: $bgColor;
         color: $color;
-        background-color: $disableColor;
-        border-color: $disableColor;
-        cursor: not-allowed;
-      }
+        border-color: $bgColor;
+
+        &:focus,
+        &:hover {
+            color: $color;
+            background-color: $hoverColor;
+            border-color: $hoverColor;
+        }
+
+        &[disabled] {
+            &,
+            &:hover,
+            &:focus {
+                color: $color;
+                background-color: $disableColor;
+                border-color: $disableColor;
+                cursor: not-allowed;
+            }
+        }
     }
-  }
-}
-
-@mixin button-size($name, $height, $fontSize: false, $padding: false) {
-  $sel: & + "--"+ $name;
-
-  @at-root #{$sel} {
-    height: $height;
-
-    @if $padding {
-      padding: 0 $padding;
-    }
-
-    @if $fontSize {
-      font-size: $fontSize;
-    }
-  }
 }
 
 /* ========================================================================== */
@@ -117,11 +108,11 @@
 /* ========================================================================== */
 
 @mixin modal-size($name, $width) {
-  $sel: & + "--"+ $name;
+    $sel: & + '--' + $name;
 
-  @at-root #{$sel} {
-    width: $width;
-  }
+    @at-root #{$sel} {
+        width: $width;
+    }
 }
 
 /* ========================================================================== */
@@ -129,11 +120,25 @@
 /* ========================================================================== */
 
 @mixin progress-size($name, $height) {
-  $sel: & + "--"+ $name;
+    $sel: & + '--' + $name;
 
-  @at-root #{$sel} {
-    height: $height;
-    line-height: $height;
-    font-size: $height;
-  }
+    @at-root #{$sel} {
+        height: $height;
+        line-height: $height;
+        font-size: $height;
+    }
+}
+
+/* ========================================================================== */
+/*                                   Tag                                   */
+/* ========================================================================== */
+
+@mixin tag-color($name, $color, $bgColor) {
+    $sel: & + '--' + $name;
+
+    @at-root #{$sel} {
+        background: $bgColor;
+        color: $color;
+        border-color: $bgColor;
+    }
 }

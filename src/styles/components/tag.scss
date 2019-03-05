@@ -1,0 +1,50 @@
+@import '../variables/index';
+@import '../minxins/index';
+
+@include b(tag) {
+    display: inline-block;
+    height: $height-base;
+    line-height: $height-base - 2px;
+    font-size: $font-size-base;
+    box-sizing: border-box;
+    padding: 0 $padding-base;
+    background: $background-default-color;
+    color: $font-default-color;
+    border: 1px solid $boder-default-color;
+    border-radius: $border-radius;
+    vertical-align: middle;
+    outline: none;
+    i[class*='sim-icon'] {
+        font-size: 14px;
+        vertical-align: middle;
+        line-height: 1;
+        position: relative;
+        top: -1px;
+        right: -4px;
+        cursor: pointer;
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+
+    @include m(mini) {
+        line-height: $height-mini - 2px;
+    }
+
+    @include m(small) {
+        line-height: $height-small - 2px;
+    }
+
+    @include m(big) {
+        line-height: $height-big - 2px;
+    }
+
+    @include tag-color(primary, $white, $primary);
+    @include tag-color(success, $white, $success);
+    @include tag-color(warning, $white, $warning);
+    @include tag-color(danger, $white, $danger);
+
+    @include set-size(mini, $height-mini, false, $padding-small);
+    @include set-size(small, $height-small, false, $padding-small);
+    @include set-size(big, $height-big, $font-size-2);
+}
