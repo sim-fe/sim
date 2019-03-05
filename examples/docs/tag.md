@@ -35,13 +35,12 @@
 :::
 
 ## 可移除标签
-:::demo 使用`closable`属性来定义 Tag 的大小
+:::demo 使用`closable`属性可以定义一个标签是否可移除。
 ```html
 <div>
-    <Tag size="mini" closable @on-close="close">mini标签</Tag>
-    <Tag size="small" style="margin-left: 10px" type="primary" closable @on-close="close">small标签</Tag>
-    <Tag style="margin-left: 10px" type="success" closable @on-close="close">正常大小标签</Tag>
-    <Tag size="big" style="margin-left: 10px" type="warning" closable @on-close="close">大标签</Tag>
+
+    <Tag size="mini" closable @on-close="close">标签</Tag>
+
 </div>
 <script>
     export default {
