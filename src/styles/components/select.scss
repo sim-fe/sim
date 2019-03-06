@@ -17,22 +17,24 @@ $transtion: transform 0.2s ease-in-out;
         width: inherit;
     }
     @include m(show) {
-        .sim-input__icon {
+        .sim-select__arrow {
             transform: rotate(180deg);
         }
     }
 
     @include m(clear) {
-        .sim-select__clear {
+        .sim-input__icon {
             cursor: pointer;
+        }
+        .sim-select__clear {
             display: none;
         }
-        &:hover {
+        & .sim-input:hover {
             .sim-select__arrow {
-                opacity: 0;
+                display: none;
             }
             .sim-select__clear {
-                display: block;
+                display: inline-block;
             }
         }
     }

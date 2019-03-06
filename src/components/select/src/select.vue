@@ -1,29 +1,28 @@
 <template>
     <div
-        :class="['sim-select', {'sim-select--show': visible, 'sim-select--clear': clearable}]"
+        :class="[
+            'sim-select',
+            {'sim-select--show': visible, 'sim-select--clear': clearable && sels}
+        ]"
         @click.stop="toggleMenu"
         v-clickoutside="handleClose"
         :placeholder="placeholder"
     >
-        <div class="sim-input">
+        <sim-input
+            ref="input"
+            v-model="query"
+            :disabled="disabled"
+            readonly
+            :placeholder="placeholder"
+        >
+            <i slot="after" class="sim-icon-icon_on_the_bottom sim-select__arrow"></i>
             <i
-                class="sim-select__arrow sim-icon-icon_on_the_bottom sim-input__icon sim-input__icon--right"
-            ></i>
-            <i
-                v-if="clearable"
+                slot="after"
+                v-if="clearable && sels"
                 @click.stop="clearSelect"
-                class="sim-select__clear sim-icon-error sim-input__icon sim-input__icon--right"
+                class="sim-select__clear sim-icon-error"
             ></i>
-            <input
-                ref="input"
-                type="text"
-                v-model="query"
-                :disabled="disabled"
-                readonly
-                :placeholder="placeholder"
-                class="sim-input__input"
-            />
-        </div>
+        </sim-input>
         <transition name="sim-fade">
             <div class="sim-select__dropdown" v-show="visible">
                 <ul class="sim-select__list">
@@ -34,6 +33,7 @@
     </div>
 </template>
 <script>
+import simInput from 'components/input';
 import Option from './option';
 import clickoutside from '@/directives/clickoutside';
 import {t} from '@/locale';
@@ -47,6 +47,8 @@ export default {
         };
     },
     components: {
+        /* eslint-disable-next-line */
+        simInput,
         /* eslint-disable-next-line */
         Option
     },
