@@ -7,10 +7,10 @@
             }
         },
         methods: {
-             
+
         },
         mounted() {
-            
+
         }
     }
 </script>
@@ -53,12 +53,22 @@ export default {
 
 ## 带 Icon 的输入框
 
-:::demo 可以通过 before-icon 和 after-icon 属性在 input 组件首部和尾部增加显示图标
+:::demo 可以通过 before-icon 和 after-icon 属性在 input 组件首部和尾部增加显示图标, 也可以通过 slot 来放置图标
 
 ```html
+<h4>属性方式</h4>
 <div>
     <Input before-icon="sim-icon-rili" placeholder="请输入内容"></Input>
     <Input after-icon="sim-icon-sousuo" placeholder="请输入内容"></Input>
+</div>
+<h4>slot方式</h4>
+<div>
+    <Input placeholder="请输入内容">
+        <i class="sim-icon-rili" slot="before"></i>
+    </Input>
+    <Input placeholder="请输入内容">
+        <i class="sim-icon-sousuo" slot="after"></i>
+    </Input>
 </div>
 ```
 

@@ -7,16 +7,17 @@
             }
         ]"
     >
-        <i
-            v-if="beforeIcon || afterIcon"
+        <span
+            v-if="beforeIcon || afterIcon || $slots.before || $slots.after"
             :class="[
-                beforeIcon || afterIcon,
                 'sim-input__icon',
-                beforeIcon ? 'sim-input__icon--left' : '',
-                afterIcon ? 'sim-input__icon--right' : ''
+                beforeIcon || $slots.before ? 'sim-input__icon--left' : '',
+                afterIcon || $slots.after ? 'sim-input__icon--right' : ''
             ]"
         >
-        </i>
+            <i v-if="beforeIcon || afterIcon" :class="[beforeIcon || afterIcon]"> </i>
+            <slot name="before"></slot> <slot name="after"></slot>
+        </span>
         <!-- 前置元素 -->
         <div class="sim-input-group__prepend" v-if="$slots.prepend">
             <slot name="prepend"></slot>
@@ -30,7 +31,6 @@
             :disabled="disabled"
             :readonly="readonly"
             :value="value"
-            
         />
         <!-- 后置元素 -->
         <div class="sim-input-group__append" v-if="$slots.append"><slot name="append"></slot></div>
@@ -52,11 +52,9 @@ export default {
         size: String
     },
     data() {
-        return {}
+        return {};
     },
-    computed: {
-
-    },
+    computed: {},
     methods: {
         focus() {
             this.$refs.input.focus();
@@ -65,5 +63,5 @@ export default {
             this.$refs.input.blur();
         }
     }
-}
+};
 </script>
