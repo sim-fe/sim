@@ -16,6 +16,9 @@ $transtion: transform 0.2s ease-in-out;
     .sim-input {
         width: inherit;
     }
+    .sim-input__icon {
+        cursor: pointer;
+    }
     @include m(show) {
         .sim-select__arrow {
             transform: rotate(180deg);
@@ -23,9 +26,6 @@ $transtion: transform 0.2s ease-in-out;
     }
 
     @include m(clear) {
-        .sim-input__icon {
-            cursor: pointer;
-        }
         .sim-select__clear {
             display: none;
         }
