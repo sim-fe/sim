@@ -14,7 +14,7 @@
     </li>
 </template>
 <script>
-import Emitter from '@/mixins/emitter'
+import Emitter from '@/mixins/emitter';
 export default {
     name: 'Option',
     props: {
@@ -29,25 +29,26 @@ export default {
     mixins: [Emitter],
     inject: ['select'],
     data() {
-        return {}
+        return {};
     },
     computed: {
         defaultLabel() {
-            let label = this.label ? this.label : this.value
-            return label
+            let label = this.label ? this.label : this.value;
+            return label;
         },
         isSelected() {
-            return this.select.sels === this.value
+            return this.select.multiple
+                ? this.select.sels.includes(this.value)
+                : this.select.sels === this.value;
         }
     },
     watch: {},
     methods: {
         doSelect() {
-            if (this.disabled) return
             this.dispatch('Select', 'on-select-selected', {
                 value: this.value,
                 label: this.label || (this.$el && this.$el.textContent)
-            })
+            });
         }
     },
     created() {},
@@ -56,7 +57,7 @@ export default {
             context: this,
             value: this.value,
             label: this.label || (this.$el && this.$el.textContent)
-        })
+        });
     }
-}
+};
 </script>

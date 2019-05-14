@@ -2,12 +2,25 @@
     <div
         :class="[
             'sim-select',
-            {'sim-select--show': visible, 'sim-select--clear': clearable && sels}
+            {
+                'sim-select--multiple': multiple,
+                'sim-select--show': visible,
+                'sim-select--clear': clearable && sels
+            }
         ]"
         @click.stop="toggleMenu"
         v-clickoutside="handleClose"
         :placeholder="placeholder"
     >
+        <div v-if="multiple">
+            <Tag
+                :key="index"
+                v-for="(item, index) in sels"
+                size="mini"
+                closable
+                @on-close="close"
+            ></Tag>
+        </div>
         <sim-input
             ref="input"
             v-model="query"
@@ -34,6 +47,7 @@
 </template>
 <script>
 import simInput from 'components/input';
+import Tag from 'components/tag';
 import Option from './option';
 import clickoutside from '@/directives/clickoutside';
 import {t} from '@/locale';
@@ -50,7 +64,9 @@ export default {
         /* eslint-disable-next-line */
         simInput,
         /* eslint-disable-next-line */
-        Option
+        Option,
+        /* eslint-disable-next-line */
+        Tag
     },
     props: {
         multiple: {
@@ -88,12 +104,18 @@ export default {
         }
     },
     mounted() {
-        /* eslint-disable-next-line */
         this.$on('on-select-selected', option => {
             if (!this.multiple) {
                 this.query = option.label;
                 this.sels = option.value;
                 this.visible = false;
+            } else {
+                let optionIndex = this.sels.indexOf(option.value);
+                if (optionIndex === -1) {
+                    this.sels.push(option.value);
+                } else {
+                    this.sels.splice(optionIndex, 1);
+                }
             }
         });
     },

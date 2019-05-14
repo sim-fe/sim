@@ -90,6 +90,39 @@ export default {
 :::
 
 
+## 多选
+
+:::demo
+
+```html
+<div>
+    <Select multiple style="width: 200px;" @on-change="onChange">
+        <Option value="1">福州</Option>
+        <Option value="2">厦门</Option>
+        <Option value="3">泉州</Option>
+        <Option value="4">宁德</Option>
+    </Select>
+</div>
+<script>
+export default {
+    data() {
+        return {
+
+        }
+    },
+    methods: {
+        onChange (value) {
+            console.log(value)
+        }
+    }
+}
+</script>
+```
+
+:::
+
+
+
 
 ## API 说明
 

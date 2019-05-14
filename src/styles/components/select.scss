@@ -39,6 +39,20 @@ $transtion: transform 0.2s ease-in-out;
         }
     }
 
+    @include m(multiple) {
+        .sim-select__option--selected {
+            &:after {
+                content: '\e660';
+                position: absolute;
+                font-family: 'simfont' !important;
+                font-size: 16px;
+                display: inline-block;
+                right: 8px;
+                top: 0;
+            }
+        }
+    }
+
     @include e(dropdown) {
         position: absolute;
         width: 100%;
@@ -56,12 +70,14 @@ $transtion: transform 0.2s ease-in-out;
         list-style: none;
     }
     @include e(option) {
-        padding: 7px 16px;
-        clear: both;
+        position: relative;
+        padding: 0 16px;
+        height: $form-elem-height;
+        line-height: $form-elem-height;
         color: $font-default-color;
         white-space: nowrap;
-        cursor: pointer;
         transition: $transtion;
+        cursor: pointer;
         &:hover {
             background: mix($primary, $background-default-color, 8%);
         }
@@ -75,7 +91,6 @@ $transtion: transform 0.2s ease-in-out;
             }
         }
         @include m(selected) {
-            background: mix($primary, $background-default-color, 8%);
             color: $primary;
         }
     }
